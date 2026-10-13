@@ -1,0 +1,14 @@
+# Черновики и сырые выгрузки — не публиковать
+drafts/
+raw/
+private/
+*.raw.*
+*.draft.*
+*.docx
+*.xlsx
+*.ndjson
+.DS_Store
+node_modules/
+.lighthouse/
+prompt.md
+.claude/
