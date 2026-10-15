@@ -250,7 +250,7 @@ h3 {
 
 h4 {
   font-size: 1rem;
-  margin: 1.5rem 0 0.5rem;
+  margin: 1.25rem 0 0.4rem;
   font-weight: 600;
 }
 
@@ -302,28 +302,39 @@ p {
   color: var(--muted);
 }
 
-/* CV-style entries */
+/* CV-style entries: dates sit at the right of the first line,
+   so the text gets the full width instead of a table column */
 
 .entry {
-  display: grid;
-  grid-template-columns: var(--date-col) 1fr;
-  gap: 0 1.5rem;
-  margin-bottom: 1.9rem;
+  position: relative;
+  padding: 1.1rem 0 1.2rem;
+  border-top: 1px solid var(--rule);
 }
 
-.entry:last-child {
-  margin-bottom: 0;
+h2 + .entry {
+  border-top: 0;
+  padding-top: 0.15rem;
 }
 
 .entry__date {
+  position: absolute;
+  top: 1.15rem;
+  right: 0;
   color: var(--muted);
-  font-size: 0.925rem;
-  padding-top: 0.1rem;
+  font-size: 0.875rem;
   white-space: nowrap;
 }
 
+h2 + .entry > .entry__date {
+  top: 0.2rem;
+}
+
+.entry > div > :first-child {
+  padding-right: 10.5rem;
+}
+
 .entry__org {
-  margin: 0 0 0.15rem;
+  margin: 0;
   color: var(--muted);
 }
 
@@ -337,19 +348,19 @@ p {
 }
 
 .entry__rank {
-  margin: 0.35rem 0 0;
-  font-size: 0.925rem;
-  font-weight: 600;
+  margin: 0.2rem 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
   color: var(--accent);
 }
 
 .entry ul {
-  margin: 0.5rem 0 0;
+  margin: 0.4rem 0 0;
   padding-left: 1.1rem;
 }
 
 .entry li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.15rem;
 }
 
 .entry li::marker {
@@ -357,7 +368,7 @@ p {
 }
 
 .stack {
-  margin: 0.6rem 0 0;
+  margin: 0.4rem 0 0;
   font-size: 0.925rem;
   color: var(--muted);
 }
@@ -368,7 +379,7 @@ p {
 }
 
 .subrole {
-  margin-top: 1rem;
+  margin-top: 0.7rem;
 }
 
 .pubs {
@@ -377,7 +388,7 @@ p {
 }
 
 .pubs li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.35rem;
 }
 
 .plain {
@@ -387,7 +398,17 @@ p {
 }
 
 .plain li {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Two short lists side by side (conferences and courses) */
+
+@media (min-width: 761px) {
+  .duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 2.5rem;
+  }
 }
 
 .note {
@@ -960,7 +981,7 @@ h2 + .case {
 
   main section > p,
   main section > ul.plain,
-  main section > ol {
+  main section > ol:not(.pubs) {
     max-width: var(--text-measure);
   }
 }
@@ -1032,13 +1053,18 @@ h2 + .case {
     white-space: nowrap;
   }
 
-  .skills > div,
-  .entry {
+  .skills > div {
     grid-template-columns: 1fr;
   }
 
-  .entry__date {
-    margin-bottom: 0.15rem;
+  .entry__date,
+  h2 + .entry > .entry__date {
+    position: static;
+    margin-bottom: 0.1rem;
+  }
+
+  .entry > div > :first-child {
+    padding-right: 0;
   }
 
   .cv-list li {
