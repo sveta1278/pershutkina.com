@@ -1,6 +1,6 @@
 # pershutkina.com
 
-Сайт-портфолио Светланы Першуткиной: аналитик данных. Статический HTML + CSS без сборки, фреймворков и JavaScript. Размещён на GitHub Pages с доменом `pershutkina.com`.
+Сайт-портфолио Светланы Першуткиной: аналитик данных. Статический HTML + CSS без фреймворков. Страницы ролей, кейсов и CV собираются скриптом на Python из файлов `content/*.toml`. JavaScript один: переключение языка без перезагрузки. Размещён на GitHub Pages с доменом `pershutkina.com`.
 
 ## Устройство
 
@@ -17,15 +17,32 @@ favicon.svg, favicon.ico, assets/apple-touch-icon.png
 robots.txt, sitemap.xml, CNAME
 content/profile.md  черновик всех фактов с источниками (в вёрстку не подключается)
 scripts/check_links.sh  проверка ссылок
+scripts/build.py    сборка страниц ролей, кейсов, CV и sitemap.xml
+assets/lang.js      переключение EN/RU без перезагрузки страницы
+content/cases.toml      банк кейсов (EN + RU)
+content/roles.toml      роли: тексты, цифры, навыки и список кейсов
+content/experience.toml короткий опыт и образование для страниц ролей
+
+Генерируются build.py (руками не править):
+<роль>/index.html, ru/<роль>/index.html   страницы ролей, например /senior-product-analyst/
+cases/index.html, ru/cases/index.html     все кейсы
+cv.html, ru/cv.html, sitemap.xml
 ```
+
+## Роли и кейсы
+
+У каждой роли своя страница: под ней свои описание, цифры, кейсы, навыки и PDF. Эту ссылку и прикладывайте к отклику, например `https://pershutkina.com/senior-product-analyst/` или `https://pershutkina.com/ru/analytics-lead/`. Ссылка на конкретный кейс: `…/senior-product-analyst/#ride-quality`.
+
+- Новый кейс: добавьте блок `[[cases]]` в `content/cases.toml` и впишите его `id` в `cases = [...]` нужных ролей в `content/roles.toml`.
+- Новая роль: добавьте блок `[[roles]]` в `content/roles.toml` и положите её PDF в `cv/`.
+- После любых правок в `content/*.toml` запустите `python3 scripts/build.py` (нужен Python 3.11+) и закоммитьте получившиеся HTML.
 
 ## Как обновить раздел
 
 Тексты лежат прямо в HTML. Английская версия в `index.html`, русская в `ru/index.html`. Правьте обе. Разделы находятся по `id`: `skills`, `education`, `experience`, `about`.
 
 - Новое место работы: скопируйте блок `<div class="entry">…</div>` в разделе `experience` и поставьте его первым.
-- Новое CV: положите PDF в `cv/` и добавьте пункт `<li>` в `cv.html` и `ru/cv.html`.
-- После правок обновите `<lastmod>` в `sitemap.xml`.
+- Новое CV: см. «Роли и кейсы» выше, `cv.html` и `sitemap.xml` собираются скриптом.
 
 ## Локальный запуск
 

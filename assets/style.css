@@ -442,6 +442,116 @@ footer p {
   margin: 0;
 }
 
+/* Role pages and case studies */
+
+.focus {
+  margin: -0.85rem 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.case {
+  padding: 1.75rem 0 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+h2 + .case {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.case__org {
+  margin: 0 0 0.15rem;
+  color: var(--muted);
+  font-size: 0.925rem;
+}
+
+.case h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.case__metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+}
+
+.case__metrics div {
+  background: var(--tint);
+  border-left: 3px solid var(--accent);
+  padding: 0.35rem 0.75rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.case__metrics dt {
+  display: inline;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.case__metrics dd {
+  display: inline;
+  margin: 0 0 0 0.35rem;
+  font-size: 0.925rem;
+  color: var(--muted);
+}
+
+.case__label {
+  margin-bottom: 0.25rem;
+}
+
+.case ul {
+  margin: 0 0 1rem;
+  padding-left: 1.1rem;
+}
+
+.case li {
+  margin-bottom: 0.35rem;
+}
+
+.case li::marker {
+  color: var(--accent);
+}
+
+.case__roles {
+  margin: 0.6rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.intro__h {
+  margin: 1.5rem 0 0.6rem;
+}
+
+.role-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.role-links a {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.role-links a:hover {
+  background: var(--tint);
+}
+
+.note-after {
+  margin: 1.5rem 0 0;
+}
+
 /* Small screens */
 
 @media (max-width: 760px) {
@@ -594,6 +704,7 @@ footer p {
   }
 
   .entry,
+  .case,
   .skills > div,
   .facts div {
     break-inside: avoid;

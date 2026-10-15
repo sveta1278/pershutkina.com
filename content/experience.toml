@@ -1,0 +1,29 @@
+# Короткий опыт и образование для страниц ролей. Полная версия: index.html и ru/index.html.
+
+[[jobs]]
+url = "https://whoosh.bike/"
+en = { when = "Mar 2025 – now", title = "Product Analytics Lead", org = "Whoosh", note = "micromobility, 30M+ users, 250k+ connected vehicles. Lead since Aug 2026; before that Product Analyst / Analytics Engineer." }
+ru = { when = "март 2025 – сейчас", title = "Лид продуктовой аналитики", org = "Whoosh", note = "кикшеринг, 30 млн+ пользователей, 250k+ устройств. Лид с авг. 2026, до этого продуктовый аналитик / аналитик-инженер." }
+
+[[jobs]]
+url = "https://sdl.gis.harvard.edu/"
+en = { when = "2026 – now", title = "Research Intern", org = "Spatial Data Lab, Harvard University", note = "remote. CompactLife project for the ODPT Challenge 2026." }
+ru = { when = "2026 – сейчас", title = "Стажёр-исследователь", org = "Spatial Data Lab, Гарвардский университет", note = "удалённо. Проект CompactLife для ODPT Challenge 2026." }
+
+[[jobs]]
+url = "https://www.tbank.ru/"
+en = { when = "Aug 2024 – Mar 2025", title = "Business / Systems Analyst, Collections", org = "T-Bank", note = "digital bank, 40M+ clients." }
+ru = { when = "авг. 2024 – март 2025", title = "Бизнес- и системный аналитик, департамент взыскания", org = "Т-Банк", note = "цифровой банк, 40 млн+ клиентов." }
+
+[[jobs]]
+url = "https://gucodd.mos.ru/"
+en = { when = "Jun 2023 – Aug 2024", title = "Geospatial Analyst", org = "Moscow Department of Transport", note = "Traffic Management Centre." }
+ru = { when = "июнь 2023 – авг. 2024", title = "Геоаналитик", org = "Департамент транспорта Москвы", note = "ЦОДД." }
+
+[[education]]
+en = { when = "2025 – 2027", title = "Master in Management, Operational Efficiency and Production Systems", org = "HSE University, Graduate School of Business · expected 2027" }
+ru = { when = "2025 – 2027", title = "Магистратура «Операционная эффективность и производственные системы»", org = "НИУ ВШЭ, Высшая школа бизнеса · окончание в 2027" }
+
+[[education]]
+en = { when = "2020 – 2024", title = "Bachelor in Economic and Social Geography", org = "Lomonosov Moscow State University" }
+ru = { when = "2020 – 2024", title = "Бакалавриат, экономическая и социальная география", org = "МГУ имени М. В. Ломоносова" }

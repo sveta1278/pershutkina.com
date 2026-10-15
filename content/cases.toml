@@ -1,0 +1,401 @@
+# Банк кейсов. Из этого файла scripts/build.py собирает /cases/ и страницы ролей.
+# Каждый кейс: id (он же якорь в адресе), организация, период, метрики, стек
+# и тексты на двух языках. В текстах можно писать HTML (ссылки, <i>).
+# Порядок кейсов здесь = порядок на странице /cases/.
+# Какие кейсы показывать на странице роли, задаётся в content/roles.toml.
+
+[[cases]]
+id = "analytics-foundation"
+org = "Whoosh"
+when = { en = "2025 – now", ru = "2025 – сейчас" }
+stack = "SQL, dbt, Dagster, Amazon Redshift, Athena, S3, Power BI, Git"
+metrics = [
+  { value = "50+", en = "reusable data models", ru = "переиспользуемых моделей данных" },
+  { value = "100+", en = "employees use the reporting", ru = "сотрудников пользуются отчётностью" },
+]
+[cases.en]
+title = "Analytics foundation from zero"
+problem = "Whoosh runs in 7 countries and 100+ regions, and reporting relied on manual exports without shared KPI definitions."
+actions = [
+  "Designed a warehouse and 50+ reusable dbt models orchestrated in Dagster that join fleet telemetry, behavioural and financial data.",
+  "Built a metric tree with agreed KPI definitions for customer experience, fleet reliability and finance.",
+  "Replaced manual exports with scheduled dashboards and email updates.",
+  "Now own the analytics roadmap and metric standards and lead two analysts.",
+]
+result = "Automated reporting is used by 100+ employees for daily action plans and performance reviews."
+[cases.ru]
+title = "Аналитика с нуля"
+problem = "Whoosh работает в 7 странах и 100+ регионах, а отчёты собирались вручную из выгрузок, без общих определений KPI."
+actions = [
+  "Спроектировала хранилище и 50+ переиспользуемых моделей в dbt под управлением Dagster: телеметрия флота, поведенческие и финансовые данные в одном месте.",
+  "Собрала дерево метрик с согласованными определениями KPI для клиентского опыта, надёжности флота и финансов.",
+  "Заменила ручные выгрузки дашбордами по расписанию и рассылками.",
+  "Сейчас отвечаю за роадмап аналитики и стандарты метрик, руковожу двумя аналитиками.",
+]
+result = "Автоматической отчётностью пользуются 100+ сотрудников: по ней строят ежедневные планы и разбирают результаты."
+
+[[cases]]
+id = "ride-quality"
+org = "Whoosh"
+when = { en = "2025 – now", ru = "2025 – сейчас" }
+stack = "SQL, Python, dbt, Power BI"
+metrics = [
+  { value = "4.3 → 4.5", en = "average CSAT in key regions", ru = "средний CSAT в ключевых регионах" },
+]
+[cases.en]
+title = "Ride quality and CSAT"
+problem = "There was no end-to-end way to measure ride quality: what drives satisfaction, how regions compare and whether changes help."
+actions = [
+  "Analysed the drivers of ride satisfaction and set the measurement methodology.",
+  "Built data marts and recurring reports for product and regional teams.",
+  "Checked changes in CSAT for statistical significance before reporting them.",
+]
+result = "Average CSAT in key regions went from 4.3 to 4.5, a statistically significant change."
+[cases.ru]
+title = "Качество поездок и CSAT"
+problem = "Не было сквозной оценки качества поездок: что влияет на оценку, как сравнивать регионы и помогают ли изменения."
+actions = [
+  "Разобрала, что влияет на удовлетворённость поездкой, и задала методологию измерения.",
+  "Построила витрины и регулярные отчёты для продуктовых и региональных команд.",
+  "Проверяла изменения CSAT на статистическую значимость, прежде чем их показывать.",
+]
+result = "Средний CSAT в ключевых регионах вырос с 4,3 до 4,5, рост статистически значимый."
+
+[[cases]]
+id = "offer-experiments"
+org = "Whoosh"
+when = { en = "2025 – 2026", ru = "2025 – 2026" }
+stack = "SQL, Python, A/B testing, cohort analysis"
+metrics = [
+  { value = "10", en = "A/B tests of personalised offers", ru = "A/B-тестов персональных офферов" },
+  { value = "8 of 10", en = "statistically significant", ru = "статистически значимы" },
+]
+[cases.en]
+title = "Personalised offer experiments"
+problem = "The team needed to know which personalised offers, and which placements, are profitable for which user cohorts."
+actions = [
+  "Initiated a cohort-based testing framework for personalised offers and their placement.",
+  "Designed and analysed 10 A/B tests: sample sizes, significance, effects by cohort.",
+  "Flagged the two tests whose samples were too small to draw a conclusion.",
+]
+result = "8 of 10 tests gave significant results. They became a margin-ranked offer matrix by cohort that guides offer selection."
+[cases.ru]
+title = "Эксперименты с персональными офферами"
+problem = "Нужно было понять, какие персональные офферы и где их показывать выгодны для каких когорт пользователей."
+actions = [
+  "Запустила систему тестирования персональных офферов и их размещения по когортам.",
+  "Спроектировала и разобрала 10 A/B-тестов: размер выборки, значимость, эффекты по когортам.",
+  "Отметила два теста, где выборки не хватило для вывода.",
+]
+result = "8 из 10 тестов дали значимый результат. По ним собрана матрица самых маржинальных офферов для каждой когорты, по ней выбирают офферы."
+
+[[cases]]
+id = "onboarding-funnel"
+org = "Whoosh"
+when = { en = "2025 – 2026", ru = "2025 – 2026" }
+stack = "SQL, Python, funnel analysis, A/B testing"
+metrics = [
+  { value = "+5%", en = "onboarding conversion, relative", ru = "конверсии онбординга, относительно" },
+]
+[cases.en]
+title = "Onboarding funnel"
+problem = "New users dropped out during onboarding, and it was unclear at which steps."
+actions = [
+  "Broke the onboarding funnel down step by step and found the main drop-off points.",
+  "Worked with the product team on UX changes for those steps.",
+  "Validated the change with an A/B test.",
+]
+result = "Onboarding conversion rose by 5% relative, confirmed by the A/B test."
+[cases.ru]
+title = "Воронка онбординга"
+problem = "Новые пользователи отваливались на онбординге, и было непонятно, на каких шагах."
+actions = [
+  "Разложила воронку онбординга по шагам и нашла основные точки отвала.",
+  "Вместе с продуктовой командой подготовила изменения интерфейса для этих шагов.",
+  "Проверила изменение A/B-тестом.",
+]
+result = "Конверсия онбординга выросла на 5% относительно, это подтвердил A/B-тест."
+
+[[cases]]
+id = "event-tracking"
+org = "Whoosh"
+when = { en = "2025 – 2026", ru = "2025 – 2026" }
+stack = "Google Analytics, Firebase, SQL, dbt, Power BI"
+metrics = [
+  { value = "100+", en = "mobile events defined", ru = "событий в мобильном приложении" },
+  { value = "15+", en = "features covered", ru = "фич под разметкой" },
+]
+[cases.en]
+title = "Product event tracking"
+problem = "Product teams needed a reliable way to evaluate feature launches in the mobile app."
+actions = [
+  "Defined the event taxonomy: 100+ mobile events for 15+ features.",
+  "Turned measurement needs into data marts and dashboards.",
+  "Analysed launches together with product teams.",
+]
+result = "15+ features are covered by agreed tracking, data marts and dashboards for launch analysis."
+[cases.ru]
+title = "Разметка продуктовых событий"
+problem = "Продуктовым командам нужен был надёжный способ оценивать запуски фич в мобильном приложении."
+actions = [
+  "Описала таксономию событий: 100+ событий для 15+ фич.",
+  "Перевела потребности в измерениях в витрины и дашборды.",
+  "Разбирала запуски вместе с продуктовыми командами.",
+]
+result = "15+ фич покрыты согласованной разметкой, витринами и дашбордами для анализа запусков."
+
+[[cases]]
+id = "gps-spoofing"
+org = "Whoosh"
+when = { en = "2025 – 2026", ru = "2025 – 2026" }
+stack = "Python, pandas, scikit-learn, SQL"
+metrics = [
+  { value = "+20%", en = "location accuracy", ru = "точность геолокации" },
+  { value = "−80%", en = "geolocation complaints", ru = "жалоб на геопозицию" },
+]
+[cases.en]
+title = "GPS spoofing detection"
+problem = "Spoofed and drifting GPS coordinates distorted vehicle and ride locations and led to user complaints about geolocation."
+actions = [
+  "Built a detection model on fleet GPS tracks that finds GPS jumps and displaced coordinates.",
+  "Used it to filter bad points out of location data.",
+]
+result = "Location accuracy went up by 20%; geolocation complaints went down by 80%."
+[cases.ru]
+title = "Детекция GPS-спуфинга"
+problem = "Подменённые и «плавающие» GPS-координаты искажали положение самокатов и поездок, пользователи жаловались на геопозицию."
+actions = [
+  "Сделала модель, которая по GPS-трекам флота находит «вылеты» и смещённые координаты.",
+  "С её помощью плохие точки отсекаются из данных о местоположении.",
+]
+result = "Точность геолокации выросла на 20%, жалоб на геопозицию стало на 80% меньше."
+
+[[cases]]
+id = "fleet-health"
+org = "Whoosh"
+when = { en = "2025 – 2026", ru = "2025 – 2026" }
+stack = "Python, pandas, scikit-learn, SQL, dbt"
+metrics = [
+  { value = "250k+", en = "IoT devices in the model", ru = "IoT-устройств в модели" },
+  { value = "−15%", en = "inefficient recharge costs", ru = "затрат на лишние перезарядки" },
+]
+[cases.en]
+title = "Fleet health model"
+problem = "Across 250k+ connected vehicles, degraded scooters and batteries were found late, and money went on inefficient recharging."
+actions = [
+  "Built a model of device condition on IoT data from 250k+ vehicles (Python, scikit-learn).",
+  "Put it into a weekly operations process that flags degraded scooters and batteries.",
+]
+result = "Inefficient recharge costs went down by 15%."
+[cases.ru]
+title = "Модель состояния флота"
+problem = "Во флоте из 250k+ подключённых устройств деградировавшие самокаты и батареи находили поздно, а деньги уходили на неэффективные перезарядки."
+actions = [
+  "Построила модель состояния устройств по IoT-данным 250k+ самокатов (Python, scikit-learn).",
+  "Встроила её в еженедельный операционный процесс: модель отмечает деградировавшие самокаты и батареи."
+]
+result = "Затраты на неэффективные перезарядки снизились на 15%."
+
+[[cases]]
+id = "repair-early-detection"
+org = "Whoosh"
+when = { en = "2025 – 2026", ru = "2025 – 2026" }
+stack = "SQL, Python, dbt, Power BI"
+metrics = [
+  { value = "14 → 1 day", en = "time to repair intake", ru = "до приёма в ремонт" },
+  { value = "+30%", en = "share of justified repair referrals", ru = "доли обоснованных направлений в ремонт" },
+]
+[cases.en]
+title = "Early detection of damaged vehicles"
+problem = "A damaged scooter took about 14 days to reach repair, and a noticeable share of repair referrals were not justified."
+actions = [
+  "Turned fleet failure signals into an early-detection system for damaged vehicles.",
+  "Redesigned the analytical decision process for sending vehicles to repair.",
+]
+result = "Time to repair intake fell from 14 days to 1; the share of justified repair referrals rose by 30%."
+[cases.ru]
+title = "Раннее выявление поломок"
+problem = "Сломанный самокат шёл до ремонта около 14 дней, и заметная часть направлений в ремонт была необоснованной."
+actions = [
+  "Превратила сигналы о сбоях флота в систему раннего выявления повреждённых самокатов.",
+  "Перестроила аналитический процесс принятия решения об отправке в ремонт.",
+]
+result = "Путь до приёма в ремонт сократился с 14 дней до одного, доля обоснованных направлений выросла на 30%."
+
+[[cases]]
+id = "battery-repair"
+org = "Whoosh"
+when = { en = "2025 – now", ru = "2025 – сейчас" }
+stack = "SQL, Python, financial modelling"
+metrics = []
+[cases.en]
+title = "Battery repair process"
+problem = "Repair and replacement decisions for degraded batteries had no clear view of each battery’s lifecycle."
+actions = [
+  "Built the data-backed case for a battery repair process: removing degraded batteries, contractor diagnostics and repair-cost targets.",
+  "Designed a lifecycle status model so that every battery’s state is visible.",
+]
+result = "Repair and replacement decisions rest on transparent lifecycle data."
+[cases.ru]
+title = "Процесс ремонта батарей"
+problem = "Решения о ремонте или замене деградировавших батарей принимались без понятной картины жизненного цикла каждой батареи."
+actions = [
+  "Подготовила обоснование процесса ремонта батарей на данных: вывод деградировавших батарей, диагностика у подрядчика, целевая стоимость ремонта.",
+  "Спроектировала модель статусов жизненного цикла, чтобы состояние каждой батареи было видно.",
+]
+result = "Решения о ремонте и замене опираются на прозрачные данные о жизненном цикле."
+
+[[cases]]
+id = "quarterly-roi"
+org = "Whoosh"
+when = { en = "2025 – now", ru = "2025 – сейчас" }
+stack = "SQL, Excel, Power BI, unit economics"
+metrics = []
+[cases.en]
+title = "Financial models for quarterly planning"
+problem = "Product and operations initiatives competed for resources without a common way to compare expected and actual impact."
+actions = [
+  "Built business cases and financial models for product and operations initiatives.",
+  "Prepared quarterly review materials that compare expected and realised impact and ROI.",
+]
+result = "Quarterly priorities are set on quantified impact."
+[cases.ru]
+title = "Финансовые модели для квартального планирования"
+problem = "Продуктовые и операционные инициативы боролись за ресурсы без общего способа сравнить ожидаемый и фактический эффект."
+actions = [
+  "Строила бизнес-кейсы и финансовые модели для продуктовых и операционных инициатив.",
+  "Готовила материалы квартальных ревью, где ожидаемый эффект и ROI сравниваются с фактическим.",
+]
+result = "Квартальные приоритеты выбираются по посчитанному эффекту."
+
+[[cases]]
+id = "contact-strategy"
+org = "T-Bank"
+when = { en = "2024 – 2025", ru = "2024 – 2025" }
+stack = "SQL, Python, A/B testing"
+metrics = [
+  { value = "+5 p.p.", en = "conversion to repayment", ru = "конверсии в погашение" },
+]
+[cases.en]
+title = "Contact strategy experiments in collections"
+problem = "The collections department needed to know which contact channel, timing and frequency lead clients to repay."
+actions = [
+  "Designed A/B tests across channel, timing and frequency of contact.",
+  "Analysed the results and recommended the winning strategy.",
+]
+result = "Conversion to repayment rose by 5 percentage points; the winning variant became the department’s standard playbook."
+[cases.ru]
+title = "Эксперименты со стратегией контакта во взыскании"
+problem = "Департаменту взыскания нужно было понять, какой канал, время и частота контакта приводят клиента к погашению."
+actions = [
+  "Спроектировала A/B-тесты по каналу, времени и частоте контакта.",
+  "Разобрала результаты и рекомендовала победившую стратегию.",
+]
+result = "Конверсия в погашение выросла на 5 п.п., победивший вариант стал стандартным сценарием отдела."
+
+[[cases]]
+id = "data-requirements"
+org = "T-Bank"
+when = { en = "2024 – 2025", ru = "2024 – 2025" }
+stack = "SQL, BPMN, UML, REST/JSON, Jira, Confluence"
+metrics = [
+  { value = "20+", en = "specifications for engineering", ru = "ТЗ для разработки" },
+  { value = "5+", en = "services split out of a monolith", ru = "сервисов вместо монолита" },
+]
+[cases.en]
+title = "Data requirements for engineering and ML"
+problem = "A monolithic client-rating system held three teams back, and a new buy-now-pay-later ML feature needed clear success metrics and reliable training data."
+actions = [
+  "Defined success metrics and checked training-data quality for the buy-now-pay-later feature.",
+  "Wrote 20+ specifications for engineering and validated every release with SQL.",
+  "Split the client-rating monolith into 5+ services.",
+]
+result = "The buy-now-pay-later feature launched on schedule; three teams could work on the rating system in parallel."
+[cases.ru]
+title = "Требования к данным для разработки и ML"
+problem = "Монолитная система оценки клиентов тормозила три команды, а новой ML-функции «купи сейчас, плати потом» нужны были метрики успеха и надёжные обучающие данные."
+actions = [
+  "Определила метрики успеха и проверила качество обучающих данных для функции «купи сейчас, плати потом».",
+  "Написала 20+ ТЗ для разработки и проверяла каждый релиз через SQL.",
+  "Разбила монолит оценки клиентов на 5+ сервисов.",
+]
+result = "Функция «купи сейчас, плати потом» запустилась в срок, три команды смогли работать над системой оценки параллельно."
+
+[[cases]]
+id = "cycling-network"
+org = "Moscow Department of Transport"
+org_ru = "Департамент транспорта Москвы"
+when = { en = "2023 – 2024", ru = "2023 – 2024" }
+stack = "ORS routing, QGIS, Kepler.gl, OSM / GeoJSON / GPX"
+metrics = [
+  { value = "+10%", en = "to the city’s cycling network", ru = "к велосети города" },
+]
+[cases.en]
+title = "Moscow cycling network"
+problem = "The city had to decide where to extend the cycling network on a limited budget."
+actions = [
+  "Modelled cycling corridors from demand data with ORS routing.",
+  "Analysed the Green Ring cycling route.",
+  "Presented the results to managers at Yandex, Whoosh and Urent.",
+]
+result = "The network grew by 10%, and the analysis became the basis of Moscow’s cycling infrastructure strategy to 2030. The Green Ring project won the Vernadsky National Award."
+[cases.ru]
+title = "Велосеть Москвы"
+problem = "Городу нужно было решить, куда расширять велосеть при ограниченном бюджете."
+actions = [
+  "По данным о спросе моделировала коридоры велосети с маршрутизацией ORS.",
+  "Разобрала маршрут велошоссе «Зелёное кольцо».",
+  "Представила результаты руководителям Яндекса, Whoosh и Urent.",
+]
+result = "Велосеть выросла на 10%, анализ лёг в основу стратегии велоинфраструктуры Москвы до 2030 года. Проект «Зелёное кольцо» получил Национальную премию имени Вернадского."
+
+[[cases]]
+id = "bike-parking"
+org = "Moscow Department of Transport"
+org_ru = "Департамент транспорта Москвы"
+when = { en = "2023 – 2024", ru = "2023 – 2024" }
+stack = "Python, DBSCAN, QGIS, Kepler.gl"
+metrics = [
+  { value = "100+", en = "new bike-parking locations, all in the city plan", ru = "новых велопарковок, все вошли в план города" },
+]
+[cases.en]
+title = "Siting bike parking"
+problem = "New bike-parking locations had to go where the demand actually is."
+actions = [
+  "Clustered demand points with DBSCAN.",
+  "Turned the clusters into a list of justified locations for the city plan.",
+]
+result = "100+ new bike-parking locations; all of them were included in the city plan."
+[cases.ru]
+title = "Размещение велопарковок"
+problem = "Новые велопарковки нужно было поставить там, где на них действительно есть спрос."
+actions = [
+  "Кластеризовала точки спроса методом DBSCAN.",
+  "Превратила кластеры в список обоснованных мест для плана города.",
+]
+result = "100+ новых велопарковок, все вошли в план города."
+
+[[cases]]
+id = "compactlife"
+org = "Harvard Spatial Data Lab"
+when = { en = "2026 – now", ru = "2026 – сейчас" }
+stack = "PostGIS, OpenTripPlanner, OpenStreetMap, ODPT open data, Python"
+metrics = []
+[cases.en]
+title = "CompactLife: comparing homes by daily routine"
+problem = "Home search usually compares commute time only, while a real day also includes shopping, care and other stops."
+actions = [
+  "Defined the first product version: user-entered stops, feasible multimodal routes, opening hours, arrival deadlines and walking preferences.",
+  "Designed the data architecture: raw, clean and model-ready layers over ODPT transit feeds and OpenStreetMap, with source timestamps, dataset versions and validation checks.",
+  "Planned delivery in stages that separate a useful MVP from later machine-learning features.",
+]
+result = "In development for the <a href=\"https://challenge2026.odpt.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Open Data Challenge for Public Transportation 2026</a>; not deployed yet."
+[cases.ru]
+title = "CompactLife: сравнение жилья по распорядку дня"
+problem = "При выборе жилья обычно сравнивают только время до работы, хотя в реальном дне есть магазины, забота о близких и другие остановки."
+actions = [
+  "Описала первую версию продукта: остановки, которые вводит пользователь, реальные пересадочные маршруты, часы работы, крайние сроки прибытия и предпочтения по пешим участкам.",
+  "Спроектировала архитектуру данных: сырой, очищенный и готовый для моделей слои поверх открытых данных ODPT и OpenStreetMap, с отметками времени источников, версиями датасетов и проверками.",
+  "Разбила работу на этапы, чтобы отделить полезный MVP от будущих ML-функций.",
+]
+result = "В разработке для конкурса <a href=\"https://challenge2026.odpt.org/\" target=\"_blank\" rel=\"noopener noreferrer\">Open Data Challenge for Public Transportation 2026</a>, пока не запущен."

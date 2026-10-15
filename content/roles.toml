@@ -1,0 +1,178 @@
+# Роли. Для каждой scripts/build.py собирает страницу /<slug>/ и /ru/<slug>/.
+# slug: адрес страницы; pdf: файл в cv/; cases: id кейсов из content/cases.toml по порядку.
+# Название роли одно на оба языка (как в PDF), остальное переводится.
+# Порядок ролей здесь = порядок на страницах CV и кейсов.
+
+[[roles]]
+slug = "senior-data-analyst"
+title = "Senior Data Analyst"
+pdf = "pershutkina-senior-data-analyst.pdf"
+cases = ["analytics-foundation", "offer-experiments", "onboarding-funnel", "repair-early-detection", "gps-spoofing", "fleet-health", "contact-strategy"]
+facts = [
+  { value = "50+", en = "dbt models in a warehouse built from scratch", ru = "моделей dbt в хранилище, собранном с нуля" },
+  { value = "100+", en = "employees use the automated reporting", ru = "сотрудников пользуются автоматической отчётностью" },
+  { value = "8 of 10", en = "offer A/B tests with significant results", ru = "A/B-тестов офферов дали значимый результат" },
+]
+[roles.en]
+focus = "Data modelling · Decision support · Experimentation · Reporting automation"
+summary = "Data modelling, experiments, reporting automation."
+lede = "Data analyst with 3+ years in micromobility, fintech and transport planning. I own analytics domains end to end: source data and quality checks, metrics, reporting and recommendations. At Whoosh I built the warehouse and reporting from scratch."
+skills = [
+  ["Data modelling", "SQL, Python (pandas, NumPy), dbt, Dagster, Amazon Redshift, dimensional modelling, data quality, Git"],
+  ["Analytics", "A/B testing, statistical significance, funnel and cohort analysis, segmentation, root cause analysis, forecasting, financial modelling"],
+  ["BI", "Tableau, Power BI, Looker, Excel, KPI frameworks, dashboards, reporting automation"],
+]
+[roles.ru]
+focus = "Модели данных · Поддержка решений · Эксперименты · Автоматизация отчётности"
+summary = "Модели данных, эксперименты, автоматизация отчётности."
+lede = "Аналитик данных, больше трёх лет в микромобильности, финтехе и транспортном планировании. Веду аналитические направления целиком: исходные данные и проверки качества, метрики, отчёты и рекомендации. В Whoosh с нуля построила хранилище и отчётность."
+skills = [
+  ["Модели данных", "SQL, Python (pandas, NumPy), dbt, Dagster, Amazon Redshift, размерное моделирование, качество данных, Git"],
+  ["Аналитика", "A/B-тесты, статистическая значимость, воронки и когорты, сегментация, поиск причин, прогнозирование, финансовые модели"],
+  ["BI", "Tableau, Power BI, Looker, Excel, системы KPI, дашборды, автоматизация отчётности"],
+]
+
+[[roles]]
+slug = "senior-product-analyst"
+title = "Senior Product Analyst"
+pdf = "pershutkina-senior-product-analyst.pdf"
+cases = ["offer-experiments", "onboarding-funnel", "ride-quality", "event-tracking", "analytics-foundation", "contact-strategy"]
+facts = [
+  { value = "+5%", en = "onboarding conversion, confirmed by an A/B test", ru = "конверсии онбординга, подтверждено A/B-тестом" },
+  { value = "4.3 → 4.5", en = "average CSAT in key regions", ru = "средний CSAT в ключевых регионах" },
+  { value = "8 of 10", en = "offer A/B tests with significant results", ru = "A/B-тестов офферов дали значимый результат" },
+]
+[roles.en]
+focus = "Product analytics · Experimentation · Customer experience · Operational performance"
+summary = "A/B tests, funnels, event tracking, customer experience."
+lede = "Product analyst with 3+ years in micromobility, fintech and transport planning. At Whoosh I own customer experience analytics across 7 countries and 100+ regions: experiments, funnels, event tracking and ride quality."
+skills = [
+  ["Product analytics", "A/B testing, statistical significance, funnel and cohort analysis, retention, segmentation, metric frameworks"],
+  ["Tracking", "Event taxonomy, Google Analytics, Firebase"],
+  ["Data and BI", "SQL, Python (pandas, NumPy), dbt, Dagster, Amazon Redshift, Tableau, Power BI, Looker"],
+]
+[roles.ru]
+focus = "Продуктовая аналитика · Эксперименты · Клиентский опыт · Операционные показатели"
+summary = "A/B-тесты, воронки, разметка событий, клиентский опыт."
+lede = "Продуктовый аналитик, больше трёх лет в микромобильности, финтехе и транспортном планировании. В Whoosh отвечаю за аналитику клиентского опыта в 7 странах и 100+ регионах: эксперименты, воронки, разметка событий и качество поездок."
+skills = [
+  ["Продуктовая аналитика", "A/B-тесты, статистическая значимость, воронки и когорты, удержание, сегментация, системы метрик"],
+  ["Разметка", "Таксономия событий, Google Analytics, Firebase"],
+  ["Данные и BI", "SQL, Python (pandas, NumPy), dbt, Dagster, Amazon Redshift, Tableau, Power BI, Looker"],
+]
+
+[[roles]]
+slug = "senior-operations-analyst"
+title = "Senior Operations Analyst"
+pdf = "pershutkina-senior-operations-analyst.pdf"
+cases = ["repair-early-detection", "fleet-health", "battery-repair", "gps-spoofing", "quarterly-roi", "bike-parking", "cycling-network"]
+facts = [
+  { value = "14 → 1 day", en = "time for a damaged scooter to reach repair", ru = "столько теперь идёт сломанный самокат до ремонта" },
+  { value = "−15%", en = "inefficient recharge costs across 250k+ vehicles", ru = "затрат на лишние перезарядки во флоте из 250k+ устройств" },
+  { value = "+30%", en = "share of justified repair referrals", ru = "доли обоснованных направлений в ремонт" },
+]
+[roles.en]
+focus = "Operations intelligence · Fleet and mobility · KPI systems · Process optimisation"
+summary = "Fleet performance, KPI systems, process improvement."
+lede = "Operations analyst with 3+ years in micromobility, fintech and transport planning. I investigate operational problems, build KPI and reporting systems and turn findings into actions for local teams. At Whoosh I cover fleet efficiency, reliability and maintenance across 7 countries and 100+ regions."
+skills = [
+  ["Operations analytics", "Fleet performance, battery lifecycle, maintenance effectiveness, root cause analysis, process improvement, demand and route analysis"],
+  ["Decision support", "KPI frameworks, financial modelling, ROI, quarterly planning, scenario analysis, recurring reporting"],
+  ["Technical", "SQL, Python (pandas, NumPy), dbt, Dagster, Amazon Redshift, Tableau, Power BI, Looker, Excel"],
+]
+[roles.ru]
+focus = "Операционная аналитика · Флот и мобильность · Системы KPI · Оптимизация процессов"
+summary = "Эффективность флота, системы KPI, улучшение процессов."
+lede = "Операционный аналитик, больше трёх лет в микромобильности, финтехе и транспортном планировании. Разбираю операционные проблемы, строю системы KPI и отчётности и превращаю выводы в действия для локальных команд. В Whoosh отвечаю за эффективность, надёжность и обслуживание флота в 7 странах и 100+ регионах."
+skills = [
+  ["Операционная аналитика", "Эффективность флота, жизненный цикл батарей, качество обслуживания, поиск причин, улучшение процессов, анализ спроса и маршрутов"],
+  ["Поддержка решений", "Системы KPI, финансовые модели, ROI, квартальное планирование, сценарный анализ, регулярная отчётность"],
+  ["Инструменты", "SQL, Python (pandas, NumPy), dbt, Dagster, Amazon Redshift, Tableau, Power BI, Looker, Excel"],
+]
+
+[[roles]]
+slug = "operations-analytics-manager"
+title = "Operations Analytics Manager"
+pdf = "pershutkina-operations-analytics-manager.pdf"
+cases = ["repair-early-detection", "battery-repair", "fleet-health", "quarterly-roi", "ride-quality", "analytics-foundation"]
+facts = [
+  { value = "14 → 1 day", en = "time for a damaged scooter to reach repair", ru = "столько теперь идёт сломанный самокат до ремонта" },
+  { value = "−15%", en = "inefficient recharge costs across 250k+ vehicles", ru = "затрат на лишние перезарядки во флоте из 250k+ устройств" },
+  { value = "100+", en = "employees use the fleet and CX reporting", ru = "сотрудников пользуются отчётностью по флоту и клиентскому опыту" },
+]
+[roles.en]
+focus = "Operational performance · Fleet reliability · Process improvement · Planning and ROI"
+summary = "Fleet reliability, maintenance, planning and ROI."
+lede = "Operations-focused analytics professional with 3+ years in micromobility, fintech and transport planning. At Whoosh I own reliability and maintenance analytics across 7 countries and 100+ regions, build operating metrics and financial models and turn them into action plans for regional teams and executives. I lead two analysts."
+skills = [
+  ["Operations management", "Fleet quality, maintenance effectiveness, battery lifecycle, root cause analysis, KPI frameworks, process improvement, quarterly planning"],
+  ["Commercial analysis", "Financial modelling, unit economics, ROI, investment cases, expected versus realised impact, prioritisation"],
+  ["Data and reporting", "SQL, Python, dbt, Dagster, Amazon Redshift, Tableau, Power BI, Looker, automated reporting"],
+]
+[roles.ru]
+focus = "Операционная эффективность · Надёжность флота · Улучшение процессов · Планирование и ROI"
+summary = "Надёжность флота, обслуживание, планирование и ROI."
+lede = "Аналитик с операционным фокусом, больше трёх лет в микромобильности, финтехе и транспортном планировании. В Whoosh отвечаю за аналитику надёжности и обслуживания флота в 7 странах и 100+ регионах, строю операционные метрики и финансовые модели и превращаю их в планы действий для региональных команд и руководства. Руковожу двумя аналитиками."
+skills = [
+  ["Управление операциями", "Качество флота, эффективность обслуживания, жизненный цикл батарей, поиск причин, системы KPI, улучшение процессов, квартальное планирование"],
+  ["Коммерческий анализ", "Финансовые модели, юнит-экономика, ROI, инвестиционные кейсы, ожидаемый и фактический эффект, приоритизация"],
+  ["Данные и отчётность", "SQL, Python, dbt, Dagster, Amazon Redshift, Tableau, Power BI, Looker, автоматическая отчётность"],
+]
+
+[[roles]]
+slug = "analytics-lead"
+title = "Analytics Lead"
+pdf = "pershutkina-analytics-lead.pdf"
+cases = ["analytics-foundation", "ride-quality", "repair-early-detection", "offer-experiments", "quarterly-roi", "compactlife"]
+facts = [
+  { value = "0 → 50+", en = "data models: analytics launched from zero", ru = "моделей данных: аналитика запущена с нуля" },
+  { value = "100+", en = "employees use the reporting", ru = "сотрудников пользуются отчётностью" },
+  { value = "4.3 → 4.5", en = "average CSAT in key regions", ru = "средний CSAT в ключевых регионах" },
+]
+[roles.en]
+focus = "Analytics ownership · Metric strategy · Data foundations · Executive decision support"
+summary = "Analytics ownership, metric strategy, data foundations."
+lede = "Product Analytics Lead at Whoosh with 3+ years across micromobility, fintech and transport planning. I set the analytics roadmap and metric standards, lead two analysts and launched analytics from zero across 7 countries and 100+ regions."
+skills = [
+  ["Analytics leadership", "Domain ownership, metric strategy, prioritisation, executive communication, cross-functional alignment, decision frameworks"],
+  ["Product and operations", "Experimentation, customer experience, fleet reliability, process improvement, quarterly planning, financial modelling, ROI"],
+  ["Data and BI", "SQL, Python, dbt, Dagster, Amazon Redshift, data modelling, data quality, Tableau, Power BI, Looker, Git"],
+]
+[roles.ru]
+focus = "Владение аналитикой · Стратегия метрик · Фундамент данных · Поддержка решений руководства"
+summary = "Владение аналитикой, стратегия метрик, фундамент данных."
+lede = "Лид продуктовой аналитики в Whoosh, больше трёх лет в микромобильности, финтехе и транспортном планировании. Задаю роадмап аналитики и стандарты метрик, руковожу двумя аналитиками. Запустила аналитику с нуля в 7 странах и 100+ регионах."
+skills = [
+  ["Руководство аналитикой", "Владение направлением, стратегия метрик, приоритизация, коммуникация с руководством, согласование между командами, рамки для решений"],
+  ["Продукт и операции", "Эксперименты, клиентский опыт, надёжность флота, улучшение процессов, квартальное планирование, финансовые модели, ROI"],
+  ["Данные и BI", "SQL, Python, dbt, Dagster, Amazon Redshift, моделирование данных, качество данных, Tableau, Power BI, Looker, Git"],
+]
+
+[[roles]]
+slug = "data-product-manager"
+title = "Data Product Manager"
+pdf = "pershutkina-data-product-manager.pdf"
+cases = ["event-tracking", "onboarding-funnel", "offer-experiments", "data-requirements", "compactlife", "quarterly-roi"]
+facts = [
+  { value = "100+", en = "mobile events defined for 15+ features", ru = "событий описано для 15+ фич" },
+  { value = "+5%", en = "onboarding conversion, confirmed by an A/B test", ru = "конверсии онбординга, подтверждено A/B-тестом" },
+  { value = "20+", en = "specifications delivered to engineering", ru = "ТЗ передано в разработку" },
+]
+[roles.en]
+focus = "Data products · Product measurement · Experimentation · Mobility intelligence"
+summary = "Product measurement, data requirements, experimentation."
+lede = "Data and product analytics professional with 3+ years of turning operational and behavioural data into measurable product improvements. I define metrics and event taxonomies, validate changes with experiments and translate business problems into data requirements. Now shaping CompactLife, a mobility data product, from MVP scope to data architecture."
+skills = [
+  ["Data products", "Product measurement, data requirements, metric design, event taxonomies, specifications, data quality, acceptance criteria"],
+  ["Product development", "Experiment design, funnel analysis, customer experience, UX measurement, stakeholder alignment, business cases, ROI"],
+  ["Technical", "SQL, Python, dbt, Dagster, Amazon Redshift, APIs and data pipelines, Tableau, Power BI, Looker, Git"],
+]
+[roles.ru]
+focus = "Продукты на данных · Продуктовые метрики · Эксперименты · Аналитика мобильности"
+summary = "Продуктовые метрики, требования к данным, эксперименты."
+lede = "Продуктовый аналитик и аналитик данных, больше трёх лет превращаю операционные и поведенческие данные в измеримые улучшения продукта. Задаю метрики и таксономию событий, проверяю изменения экспериментами и перевожу бизнес-задачи в требования к данным. Сейчас веду CompactLife, продукт на данных о мобильности, от границ MVP до архитектуры данных."
+skills = [
+  ["Продукты на данных", "Продуктовые метрики, требования к данным, проектирование метрик, таксономия событий, ТЗ, качество данных, критерии приёмки"],
+  ["Развитие продукта", "Дизайн экспериментов, воронки, клиентский опыт, измерение UX, согласование со стейкхолдерами, бизнес-кейсы, ROI"],
+  ["Инструменты", "SQL, Python, dbt, Dagster, Amazon Redshift, API и пайплайны данных, Tableau, Power BI, Looker, Git"],
+]
