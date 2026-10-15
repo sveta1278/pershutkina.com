@@ -34,20 +34,23 @@
   <div class="hero" id="top">
     <svg class="hero__map" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <defs>
-        <pattern id="hex" width="48.5" height="84" patternUnits="userSpaceOnUse">
-          <path d="M24.2 0L48.5 14L48.5 42L24.2 56L0 42L0 14ZM0 42L24.2 56L24.2 84L0 98L-24.2 84L-24.2 56ZM48.5 42L72.7 56L72.7 84L48.5 98L24.2 84L24.2 56Z"/>
-        </pattern>
-        <radialGradient id="hex-fade" cx="62%" cy="45%" r="60%">
-          <stop offset="0" stop-color="#fff"/>
-          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-        </radialGradient>
-        <mask id="hex-mask"><rect width="1440" height="900" fill="url(#hex-fade)"/></mask>
+        <radialGradient id="heat-a"><stop offset="0" stop-color="#52b788" stop-opacity="0.34"/><stop offset="0.45" stop-color="#52b788" stop-opacity="0.13"/><stop offset="1" stop-color="#52b788" stop-opacity="0"/></radialGradient>
+        <radialGradient id="heat-b"><stop offset="0" stop-color="#74c69d" stop-opacity="0.45"/><stop offset="0.45" stop-color="#74c69d" stop-opacity="0.17"/><stop offset="1" stop-color="#74c69d" stop-opacity="0"/></radialGradient>
+        <radialGradient id="heat-c"><stop offset="0" stop-color="#95d5b2" stop-opacity="0.7"/><stop offset="0.5" stop-color="#95d5b2" stop-opacity="0.26"/><stop offset="1" stop-color="#95d5b2" stop-opacity="0"/></radialGradient>
         <path id="route-1" d="M-40 700C200 640 320 520 520 540S860 640 1040 480S1300 220 1480 200" pathLength="1"/>
         <path id="route-2" d="M-40 180C180 220 300 330 520 300S820 160 1000 230S1260 420 1480 380" pathLength="1"/>
         <path id="route-3" d="M300 940C360 760 520 700 700 720S1000 860 1180 700S1360 560 1480 600" pathLength="1"/>
         <path id="route-4" d="M860 -40C880 120 980 260 1120 300S1360 300 1480 360" pathLength="1"/>
       </defs>
-      <rect class="hero__grid" width="1440" height="900" fill="url(#hex)" mask="url(#hex-mask)"/>
+      <g class="hero__heat">
+        <circle cx="1040" cy="470" r="260" fill="url(#heat-b)" style="--d:0s;--t:9s"/>
+        <circle cx="1010" cy="235" r="170" fill="url(#heat-a)" style="--d:-3s;--t:7s"/>
+        <circle cx="1220" cy="690" r="210" fill="url(#heat-c)" style="--d:-5s;--t:8s"/>
+        <circle cx="1300" cy="300" r="140" fill="url(#heat-b)" style="--d:-1.5s;--t:6.5s"/>
+        <circle cx="700" cy="740" r="190" fill="url(#heat-a)" style="--d:-4s;--t:10s"/>
+        <circle cx="560" cy="230" r="150" fill="url(#heat-c)" style="--d:-2s;--t:7.5s"/>
+        <circle cx="180" cy="760" r="170" fill="url(#heat-b)" style="--d:-6s;--t:9.5s"/>
+      </g>
       <use class="hero__route" href="#route-1"/>
       <use class="hero__route hero__route--b" href="#route-2"/>
       <use class="hero__route hero__route--c" href="#route-3"/>

@@ -585,11 +585,9 @@ h2 + .case {
   will-change: transform;
 }
 
-.hero pattern path {
-  fill: none;
-  stroke: var(--accent);
-  stroke-opacity: 0.09;
-  stroke-width: 1;
+.hero__heat circle {
+  transform-box: fill-box;
+  transform-origin: center;
 }
 
 .hero__route {
@@ -737,6 +735,20 @@ h2 + .case {
   .js-hero .hero.is-ready .hero__route--c { transition-delay: 0.7s; }
   .js-hero .hero.is-ready .hero__route--d { transition-delay: 0.95s; }
 
+  /* Demand hot spots: fade in, then breathe slowly, each on its own rhythm */
+  .js-hero .hero__heat {
+    opacity: 0;
+  }
+
+  .js-hero .hero.is-ready .hero__heat {
+    opacity: 1;
+    transition: opacity 2s ease 0.3s;
+  }
+
+  .hero__heat circle {
+    animation: hero-pulse var(--t, 8s) ease-in-out var(--d, 0s) infinite alternate;
+  }
+
   .hero__arrow::before {
     animation: hero-wheel 1.8s ease-in-out infinite;
   }
@@ -756,6 +768,11 @@ h2 + .case {
 @keyframes hero-rise {
   from { opacity: 0; transform: translateY(0.8rem); }
   to { opacity: 1; transform: none; }
+}
+
+@keyframes hero-pulse {
+  from { transform: scale(0.82); opacity: 0.65; }
+  to { transform: scale(1.12); opacity: 1; }
 }
 
 @keyframes hero-wheel {
