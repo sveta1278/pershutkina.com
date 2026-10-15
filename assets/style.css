@@ -561,7 +561,7 @@ h2 + .case {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: calc(100vh - 3.5rem);
+  min-height: 100vh;
   overflow: hidden;
   background:
     radial-gradient(ellipse 70% 60% at 70% 40%, var(--tint) 0%, rgba(234, 243, 237, 0) 70%),
@@ -571,7 +571,7 @@ h2 + .case {
 
 @supports (height: 100svh) {
   .hero {
-    min-height: calc(100svh - 3.5rem);
+    min-height: 100svh;
   }
 }
 
@@ -612,12 +612,6 @@ h2 + .case {
   stroke-opacity: 0.6;
 }
 
-.hero__stops circle {
-  fill: var(--bg);
-  stroke: var(--accent);
-  stroke-width: 3;
-}
-
 .hero__riders circle {
   fill: var(--accent);
 }
@@ -632,15 +626,6 @@ h2 + .case {
   transform-origin: 0 50%;
   opacity: calc(1 - var(--p) * 1.5);
   will-change: transform, opacity;
-}
-
-.hero__kicker {
-  margin: 0 0 1rem;
-  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
 }
 
 .hero__name {
@@ -662,14 +647,6 @@ h2 + .case {
 
 .hero__char {
   display: inline-block;
-}
-
-.hero__tag {
-  max-width: 34rem;
-  margin: 1.75rem 0 0;
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
-  line-height: 1.5;
-  color: var(--muted);
 }
 
 .hero__cue {
@@ -718,8 +695,6 @@ h2 + .case {
 
 @media (prefers-reduced-motion: no-preference) {
   .js-hero .hero__name,
-  .js-hero .hero__kicker,
-  .js-hero .hero__tag,
   .js-hero .hero__cue > span {
     opacity: 0;
   }
@@ -745,14 +720,6 @@ h2 + .case {
     filter: none;
   }
 
-  .js-hero .hero.is-ready .hero__kicker {
-    animation: hero-rise 0.8s 0.05s ease forwards;
-  }
-
-  .js-hero .hero.is-ready .hero__tag {
-    animation: hero-rise 0.9s 1.35s ease forwards;
-  }
-
   .js-hero .hero.is-ready .hero__cue > span {
     animation: hero-rise 0.8s 2s ease forwards;
   }
@@ -770,29 +737,8 @@ h2 + .case {
   .js-hero .hero.is-ready .hero__route--c { transition-delay: 0.7s; }
   .js-hero .hero.is-ready .hero__route--d { transition-delay: 0.95s; }
 
-  .js-hero .hero__stops circle {
-    opacity: 0;
-    transform-box: fill-box;
-    transform-origin: center;
-    transform: scale(0);
-  }
-
-  .js-hero .hero.is-ready .hero__stops circle {
-    opacity: 1;
-    transform: none;
-    transition: opacity 0.4s ease var(--d), transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) var(--d);
-  }
-
   .hero__arrow::before {
     animation: hero-wheel 1.8s ease-in-out infinite;
-  }
-
-  .js-hero .topbar__name {
-    transition: opacity 0.3s ease;
-  }
-
-  .js-hero:not(.hero-passed) .topbar__name {
-    opacity: 0;
   }
 }
 
@@ -891,16 +837,6 @@ h2 + .case {
   html {
     scroll-padding-top: 6rem;
   }
-
-  .hero {
-    min-height: calc(100vh - 5.9rem);
-  }
-
-  @supports (height: 100svh) {
-    .hero {
-      min-height: calc(100svh - 5.9rem);
-    }
-  }
 }
 
 @media (max-width: 600px) {
@@ -973,8 +909,6 @@ h2 + .case {
 
   .topbar,
   .hero__map,
-  .hero__kicker,
-  .hero__tag,
   .hero__cue,
   .skip-link,
   .button,
