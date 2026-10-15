@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Светлана Першуткина, аналитик данных</title>
-  <meta name="description" content="Аналитик данных, 3+ года в микромобильности, финтехе и транспортном планировании. Лид продуктовой аналитики в Whoosh. SQL, Python, dbt, A/B-тесты, геоаналитика.">
+  <title>Светлана Першуткина, лид продуктовой аналитики</title>
+  <meta name="description" content="Лид продуктовой аналитики в Whoosh, 3+ года в микромобильности, финтехе и транспортном планировании. SQL, Python, dbt, A/B-тесты, геоаналитика.">
   <link rel="canonical" href="https://pershutkina.com/ru/">
   <link rel="alternate" hreflang="en" href="https://pershutkina.com/">
   <link rel="alternate" hreflang="ru" href="https://pershutkina.com/ru/">
   <link rel="alternate" hreflang="x-default" href="https://pershutkina.com/">
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Светлана Першуткина, аналитик данных">
+  <meta property="og:title" content="Светлана Першуткина, лид продуктовой аналитики">
   <meta property="og:description" content="3+ года в микромобильности, финтехе и транспортном планировании. SQL, Python, dbt, A/B-тесты, геоаналитика.">
   <meta property="og:url" content="https://pershutkina.com/ru/">
   <meta property="og:image" content="https://pershutkina.com/assets/og.png">
@@ -25,6 +25,8 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/style.css">
   <script src="/assets/lang.js" defer></script>
+  <script>document.documentElement.classList.add('js-hero')</script>
+  <script src="/assets/hero.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -47,13 +49,58 @@
     </div>
   </header>
 
+  <div class="hero" id="top">
+    <svg class="hero__map" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id="hex" width="48.5" height="84" patternUnits="userSpaceOnUse">
+          <path d="M24.2 0L48.5 14L48.5 42L24.2 56L0 42L0 14ZM0 42L24.2 56L24.2 84L0 98L-24.2 84L-24.2 56ZM48.5 42L72.7 56L72.7 84L48.5 98L24.2 84L24.2 56Z"/>
+        </pattern>
+        <radialGradient id="hex-fade" cx="62%" cy="45%" r="60%">
+          <stop offset="0" stop-color="#fff"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="hex-mask"><rect width="1440" height="900" fill="url(#hex-fade)"/></mask>
+        <path id="route-1" d="M-40 700C200 640 320 520 520 540S860 640 1040 480S1300 220 1480 200" pathLength="1"/>
+        <path id="route-2" d="M-40 180C180 220 300 330 520 300S820 160 1000 230S1260 420 1480 380" pathLength="1"/>
+        <path id="route-3" d="M300 940C360 760 520 700 700 720S1000 860 1180 700S1360 560 1480 600" pathLength="1"/>
+        <path id="route-4" d="M860 -40C880 120 980 260 1120 300S1360 300 1480 360" pathLength="1"/>
+      </defs>
+      <rect class="hero__grid" width="1440" height="900" fill="url(#hex)" mask="url(#hex-mask)"/>
+      <use class="hero__route" href="#route-1"/>
+      <use class="hero__route hero__route--b" href="#route-2"/>
+      <use class="hero__route hero__route--c" href="#route-3"/>
+      <use class="hero__route hero__route--d" href="#route-4"/>
+      <g class="hero__stops">
+        <circle cx="520" cy="540" r="7" style="--d:1.3s"/>
+        <circle cx="1040" cy="480" r="7" style="--d:1.7s"/>
+        <circle cx="520" cy="300" r="7" style="--d:1.5s"/>
+        <circle cx="1000" cy="230" r="7" style="--d:1.9s"/>
+        <circle cx="700" cy="720" r="7" style="--d:1.8s"/>
+        <circle cx="1180" cy="700" r="7" style="--d:2.1s"/>
+        <circle cx="1120" cy="300" r="7" style="--d:2s"/>
+      </g>
+      <g class="hero__riders">
+        <circle r="5"><animateMotion dur="14s" begin="2s" repeatCount="indefinite"><mpath href="#route-1"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="17s" begin="2.4s" repeatCount="indefinite"><mpath href="#route-2"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="15s" begin="2.8s" repeatCount="indefinite"><mpath href="#route-3"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="11s" begin="3.2s" repeatCount="indefinite"><mpath href="#route-4"/></animateMotion></circle>
+      </g>
+    </svg>
+    <div class="hero__inner">
+      <p class="hero__kicker">Лид продуктовой аналитики · Whoosh</p>
+      <h1 class="hero__name"><span class="hero__line">Светлана</span> <span class="hero__line">Першуткина</span></h1>
+      <p class="hero__tag">Данные, карты и эксперименты для сервиса мобильности: 30 млн+ пользователей, 250 тысяч устройств, 7 стран.</p>
+    </div>
+    <a class="hero__cue" href="#main"><span>Листайте</span><span class="hero__arrow" aria-hidden="true"></span></a>
+  </div>
+
   <main id="main">
     <div class="wrap">
 
       <div class="intro">
-        <h1>Светлана Першуткина</h1>
-        <p class="role">Аналитик данных</p>
-        <p class="lede">Больше трёх лет в аналитике: микромобильность, финтех, транспортное планирование. В <a href="https://whoosh.bike/" target="_blank" rel="noopener noreferrer">Whoosh</a> руковожу продуктовой аналитикой качества поездок, надёжности флота и геоданных. Это больше 250 тысяч подключённых устройств. Каждый день работаю с SQL, Python, dbt, Dagster и A/B-тестами. Живу в Москве.</p>
+        <p class="role">Лид продуктовой аналитики</p>
+        <p class="lede">Больше трёх лет в аналитике: микромобильность, финтех, транспортное планирование. В <a href="https://whoosh.bike/" target="_blank" rel="noopener noreferrer">Whoosh</a> руковожу продуктовой аналитикой качества поездок, надёжности флота и геоданных. Это больше 250 тысяч подключённых устройств. Каждый день работаю с SQL, Python, dbt, Dagster и A/B-тестами.</p>
+        <p class="location">Москва · готова к переезду в Великобританию (нужна виза Skilled Worker) · удалённо из любой страны</p>
         <ul class="contacts">
           <li><a class="button" href="/ru/cv.html">Скачать CV</a></li>
           <li><a href="mailto:pershutkina2000@gmail.com">pershutkina2000@gmail.com</a></li>
@@ -196,7 +243,7 @@
             <ul>
               <li>Сделала модель, которая находит GPS-спуфинг по трекам флота и отсекает «вылеты» и смещённые координаты. Точность геолокации выросла на 20%, жалоб на геопозицию стало на 80% меньше.</li>
               <li>Построила модель состояния 250k+ IoT-устройств (Python, scikit-learn): она каждую неделю отмечает деградировавшие самокаты и батареи для операционной команды. Затраты на неэффективные перезарядки снизились на 15%. Раннее выявление поломок сократило путь самоката до ремонта с 14 дней до одного, а доля обоснованных направлений в ремонт выросла на 30%.</li>
-              <li>Провела 10 A/B-тестов персональных офферов, 8 дали значимый результат. По итогам собрала матрицу самых маржинальных офферов для каждой когорты. Нашла, где пользователи отваливаются в онбординге; после правок интерфейса конверсия выросла на 5% относительно, это подтвердил A/B-тест.</li>
+              <li>Провела 10 A/B-тестов персональных офферов: 8 дали значимый результат, а 2 я отметила как недобравшие выборку, вместо того чтобы делать по ним выводы. По итогам собрала матрицу самых маржинальных офферов для каждой когорты. Нашла, где пользователи отваливаются в онбординге; после правок интерфейса конверсия выросла на 5% относительно, это подтвердил A/B-тест.</li>
               <li>С нуля собрала аналитическое хранилище: 50+ моделей в dbt и Dagster объединяют телеметрию, поведенческие и финансовые данные. Сверху дерево метрик и автоматическая отчётность, которой пользуются больше 100 сотрудников.</li>
             </ul>
             <p class="stack"><b>Стек:</b> SQL, Python (pandas, NumPy, scikit-learn), dbt, Dagster, AWS Redshift, Athena, S3, Power BI, QGIS, H3</p>

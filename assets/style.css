@@ -111,6 +111,7 @@ a:hover {
 .nav a {
   color: var(--muted);
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav a:hover,
@@ -552,6 +553,315 @@ h2 + .case {
   margin: 1.5rem 0 0;
 }
 
+/* Hero: full-screen name on the main page (assets/hero.js) */
+
+.hero {
+  --p: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 3.5rem);
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 60% at 70% 40%, var(--tint) 0%, rgba(234, 243, 237, 0) 70%),
+    var(--bg);
+  border-bottom: 1px solid var(--rule);
+}
+
+@supports (height: 100svh) {
+  .hero {
+    min-height: calc(100svh - 3.5rem);
+  }
+}
+
+.hero__map {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(calc(var(--p) * 18vh)) scale(calc(1 + var(--p) * 0.08));
+  transform-origin: 60% 40%;
+  will-change: transform;
+}
+
+.hero pattern path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-opacity: 0.09;
+  stroke-width: 1;
+}
+
+.hero__route {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-opacity: 0.32;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.hero__route--b {
+  stroke: #52b788;
+  stroke-opacity: 0.45;
+}
+
+.hero__route--d {
+  stroke: #95d5b2;
+  stroke-opacity: 0.6;
+}
+
+.hero__stops circle {
+  fill: var(--bg);
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+
+.hero__riders circle {
+  fill: var(--accent);
+}
+
+.hero__inner {
+  position: relative;
+  width: 100%;
+  max-width: 76rem;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 6rem;
+  transform: translateY(calc(var(--p) * -14vh)) scale(calc(1 - var(--p) * 0.1));
+  transform-origin: 0 50%;
+  opacity: calc(1 - var(--p) * 1.5);
+  will-change: transform, opacity;
+}
+
+.hero__kicker {
+  margin: 0 0 1rem;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero__name {
+  margin: 0;
+  font-size: clamp(3.1rem, 14vw, 10.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+}
+
+.hero__line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero__line + .hero__line {
+  color: var(--accent);
+}
+
+.hero__char {
+  display: inline-block;
+}
+
+.hero__tag {
+  max-width: 34rem;
+  margin: 1.75rem 0 0;
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.hero__cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translateX(-50%);
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  opacity: calc(1 - var(--p) * 4);
+}
+
+.hero__cue:hover {
+  color: var(--accent);
+}
+
+.hero__arrow {
+  position: relative;
+  width: 1.6rem;
+  height: 2.6rem;
+  border: 2px solid currentColor;
+  border-radius: 1rem;
+}
+
+.hero__arrow::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0.45rem;
+  width: 4px;
+  height: 0.55rem;
+  margin-left: -2px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+/* Animation runs only with JS and without reduced motion */
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-hero .hero__name,
+  .js-hero .hero__kicker,
+  .js-hero .hero__tag,
+  .js-hero .hero__cue > span {
+    opacity: 0;
+  }
+
+  .js-hero .hero.is-ready .hero__name {
+    opacity: 1;
+  }
+
+  .hero__char {
+    opacity: 0;
+    transform: translateY(0.55em) rotate(8deg);
+    filter: blur(10px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.9s cubic-bezier(0.2, 0.75, 0.25, 1),
+      filter 0.7s ease;
+    transition-delay: calc(var(--i) * 55ms + 150ms);
+  }
+
+  .hero.is-ready .hero__char {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .js-hero .hero.is-ready .hero__kicker {
+    animation: hero-rise 0.8s 0.05s ease forwards;
+  }
+
+  .js-hero .hero.is-ready .hero__tag {
+    animation: hero-rise 0.9s 1.35s ease forwards;
+  }
+
+  .js-hero .hero.is-ready .hero__cue > span {
+    animation: hero-rise 0.8s 2s ease forwards;
+  }
+
+  .js-hero .hero__route {
+    stroke-dashoffset: 1;
+  }
+
+  .js-hero .hero.is-ready .hero__route {
+    transition: stroke-dashoffset 2.6s cubic-bezier(0.45, 0, 0.2, 1) 0.2s;
+    stroke-dashoffset: 0;
+  }
+
+  .js-hero .hero.is-ready .hero__route--b { transition-delay: 0.45s; }
+  .js-hero .hero.is-ready .hero__route--c { transition-delay: 0.7s; }
+  .js-hero .hero.is-ready .hero__route--d { transition-delay: 0.95s; }
+
+  .js-hero .hero__stops circle {
+    opacity: 0;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: scale(0);
+  }
+
+  .js-hero .hero.is-ready .hero__stops circle {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.4s ease var(--d), transform 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) var(--d);
+  }
+
+  .hero__arrow::before {
+    animation: hero-wheel 1.8s ease-in-out infinite;
+  }
+
+  .js-hero .topbar__name {
+    transition: opacity 0.3s ease;
+  }
+
+  .js-hero:not(.hero-passed) .topbar__name {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__map,
+  .hero__inner {
+    transform: none;
+  }
+
+  .hero__riders {
+    display: none;
+  }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(0.8rem); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes hero-wheel {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(0.9rem); }
+}
+
+/* Location and visa line, more cases, recognition */
+
+.location {
+  margin: -0.75rem 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.more-cases {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.more-cases li {
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.more-cases li:first-child {
+  border-top: 0;
+}
+
+.more-cases a {
+  font-weight: 600;
+}
+
+.more-cases span {
+  color: var(--muted);
+  font-size: 0.925rem;
+}
+
+.recognition li {
+  margin-bottom: 0.5rem;
+}
+
+/* A case opened by a link (…/#ride-quality) gets a soft highlight */
+
+.case:target {
+  background: linear-gradient(90deg, var(--tint), rgba(234, 243, 237, 0));
+  box-shadow: -1.25rem 0 0 var(--tint);
+  border-top-color: var(--accent);
+}
+
 /* Small screens */
 
 @media (max-width: 760px) {
@@ -580,6 +890,16 @@ h2 + .case {
 
   html {
     scroll-padding-top: 6rem;
+  }
+
+  .hero {
+    min-height: calc(100vh - 5.9rem);
+  }
+
+  @supports (height: 100svh) {
+    .hero {
+      min-height: calc(100svh - 5.9rem);
+    }
   }
 }
 
@@ -652,6 +972,10 @@ h2 + .case {
   }
 
   .topbar,
+  .hero__map,
+  .hero__kicker,
+  .hero__tag,
+  .hero__cue,
   .skip-link,
   .button,
   .no-print,
@@ -663,6 +987,39 @@ h2 + .case {
   .wrap {
     max-width: none;
     padding: 0;
+  }
+
+  .hero {
+    min-height: 0;
+    background: none;
+    border: 0;
+  }
+
+  .hero__inner {
+    padding: 0;
+    transform: none;
+    opacity: 1;
+  }
+
+  .hero__name {
+    font-size: 18pt;
+    letter-spacing: 0;
+    line-height: 1.2;
+  }
+
+  .hero__line {
+    display: inline;
+  }
+
+  .hero__line + .hero__line {
+    color: inherit;
+  }
+
+  .hero__name,
+  .hero__char {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
   }
 
   .intro {

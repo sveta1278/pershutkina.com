@@ -45,7 +45,7 @@
       const to = document.querySelector(sel);
       if (from && to) to.replaceWith(document.importNode(from, true));
     }
-    for (const sel of ['.skip-link', '.topbar', 'main', 'footer']) {
+    for (const sel of ['.skip-link', '.topbar', '.hero', 'main', 'footer']) {
       const from = doc.querySelector(sel);
       const to = document.querySelector(sel);
       if (from && to) to.replaceWith(document.importNode(from, true));
@@ -56,6 +56,8 @@
     } else {
       window.scrollTo(0, 0);
     }
+    // Заставка на главной (hero.js) перестраивается под новый язык.
+    document.dispatchEvent(new Event('page:swap'));
   };
 
   const go = (href, push) => {

@@ -1,5 +1,7 @@
 # Роли. Для каждой scripts/build.py собирает страницу /<slug>/ и /ru/<slug>/.
 # slug: адрес страницы; pdf: файл в cv/; cases: id кейсов из content/cases.toml по порядку.
+# Первые три кейса показываются целиком, остальные коротким списком «Ещё кейсы».
+# recognition: 1–3 строки признания под роль (необязательно).
 # Название роли одно на оба языка (как в PDF), остальное переводится.
 # Порядок ролей здесь = порядок на страницах CV и кейсов.
 
@@ -7,11 +9,15 @@
 slug = "senior-data-analyst"
 title = "Senior Data Analyst"
 pdf = "pershutkina-senior-data-analyst.pdf"
-cases = ["analytics-foundation", "offer-experiments", "onboarding-funnel", "repair-early-detection", "gps-spoofing", "fleet-health", "contact-strategy"]
+cases = ["analytics-foundation", "gps-spoofing", "offer-experiments", "onboarding-funnel", "repair-early-detection", "fleet-health", "contact-strategy"]
 facts = [
   { value = "50+", en = "dbt models in a warehouse built from scratch", ru = "моделей dbt в хранилище, собранном с нуля" },
   { value = "100+", en = "employees use the automated reporting", ru = "сотрудников пользуются автоматической отчётностью" },
-  { value = "8 of 10", en = "offer A/B tests with significant results", ru = "A/B-тестов офферов дали значимый результат" },
+  { value = "−80%", en = "geolocation complaints after a GPS spoofing detection model", ru = "жалоб на геопозицию после модели детекции GPS-спуфинга" },
+]
+recognition = [
+  { en = "Open Data Challenge for Public Transportation 2026 (Japan): CompactLife project with Harvard’s Spatial Data Lab; I designed the data architecture", ru = "Open Data Challenge for Public Transportation 2026 (Япония): проект CompactLife с гарвардской Spatial Data Lab, я спроектировала архитектуру данных" },
+  { en = "Vernadsky National Environmental Award: Green Ring cycling route, Moscow Department of Transport (team project; I analysed the route)", ru = "Национальная экологическая премия имени Вернадского: велошоссе «Зелёное кольцо», Департамент транспорта Москвы (командный проект, я делала анализ маршрута)" },
 ]
 [roles.en]
 focus = "Data modelling · Decision support · Experimentation · Reporting automation"
@@ -36,11 +42,11 @@ skills = [
 slug = "senior-product-analyst"
 title = "Senior Product Analyst"
 pdf = "pershutkina-senior-product-analyst.pdf"
-cases = ["offer-experiments", "onboarding-funnel", "ride-quality", "event-tracking", "analytics-foundation", "contact-strategy"]
+cases = ["onboarding-funnel", "ride-quality", "offer-experiments", "event-tracking", "analytics-foundation", "contact-strategy"]
 facts = [
-  { value = "+5%", en = "onboarding conversion, confirmed by an A/B test", ru = "конверсии онбординга, подтверждено A/B-тестом" },
-  { value = "4.3 → 4.5", en = "average CSAT in key regions", ru = "средний CSAT в ключевых регионах" },
-  { value = "8 of 10", en = "offer A/B tests with significant results", ru = "A/B-тестов офферов дали значимый результат" },
+  { value = "+5%", en = "onboarding conversion, relative, confirmed by an A/B test", ru = "конверсии онбординга (относительно), подтверждено A/B-тестом" },
+  { value = "4.3 → 4.5", en = "average CSAT in key regions, statistically significant", ru = "средний CSAT в ключевых регионах, рост статистически значимый" },
+  { value = "10", en = "offer A/B tests turned into a margin-ranked offer matrix by cohort", ru = "A/B-тестов офферов, по ним собрана матрица самых маржинальных офферов по когортам" },
 ]
 [roles.en]
 focus = "Product analytics · Experimentation · Customer experience · Operational performance"
@@ -65,11 +71,15 @@ skills = [
 slug = "senior-operations-analyst"
 title = "Senior Operations Analyst"
 pdf = "pershutkina-senior-operations-analyst.pdf"
-cases = ["repair-early-detection", "fleet-health", "battery-repair", "gps-spoofing", "quarterly-roi", "bike-parking", "cycling-network"]
+cases = ["repair-early-detection", "fleet-health", "gps-spoofing", "battery-repair", "quarterly-roi", "bike-parking", "cycling-network"]
 facts = [
   { value = "14 → 1 day", en = "time for a damaged scooter to reach repair", ru = "столько теперь идёт сломанный самокат до ремонта" },
   { value = "−15%", en = "inefficient recharge costs across 250k+ vehicles", ru = "затрат на лишние перезарядки во флоте из 250k+ устройств" },
   { value = "+30%", en = "share of justified repair referrals", ru = "доли обоснованных направлений в ремонт" },
+]
+recognition = [
+  { en = "Vernadsky National Environmental Award: Green Ring cycling route, Moscow Department of Transport (team project; I analysed the route)", ru = "Национальная экологическая премия имени Вернадского: велошоссе «Зелёное кольцо», Департамент транспорта Москвы (командный проект, я делала анализ маршрута)" },
+  { en = "Presented fleet and cycling-infrastructure analysis to managers at Yandex, Whoosh and Urent", ru = "Представляла анализ флота и велоинфраструктуры руководителям Яндекса, Whoosh и Urent" },
 ]
 [roles.en]
 focus = "Operations intelligence · Fleet and mobility · KPI systems · Process optimisation"
@@ -94,11 +104,15 @@ skills = [
 slug = "operations-analytics-manager"
 title = "Operations Analytics Manager"
 pdf = "pershutkina-operations-analytics-manager.pdf"
-cases = ["repair-early-detection", "battery-repair", "fleet-health", "quarterly-roi", "ride-quality", "analytics-foundation"]
+cases = ["repair-early-detection", "fleet-health", "quarterly-roi", "battery-repair", "ride-quality", "analytics-foundation"]
 facts = [
   { value = "14 → 1 day", en = "time for a damaged scooter to reach repair", ru = "столько теперь идёт сломанный самокат до ремонта" },
   { value = "−15%", en = "inefficient recharge costs across 250k+ vehicles", ru = "затрат на лишние перезарядки во флоте из 250k+ устройств" },
   { value = "100+", en = "employees use the fleet and CX reporting", ru = "сотрудников пользуются отчётностью по флоту и клиентскому опыту" },
+]
+recognition = [
+  { en = "Presented fleet and cycling-infrastructure analysis to managers at Yandex, Whoosh and Urent", ru = "Представляла анализ флота и велоинфраструктуры руководителям Яндекса, Whoosh и Urent" },
+  { en = "Vernadsky National Environmental Award: Green Ring cycling route, Moscow Department of Transport (team project; I analysed the route)", ru = "Национальная экологическая премия имени Вернадского: велошоссе «Зелёное кольцо», Департамент транспорта Москвы (командный проект, я делала анализ маршрута)" },
 ]
 [roles.en]
 focus = "Operational performance · Fleet reliability · Process improvement · Planning and ROI"
@@ -125,9 +139,14 @@ title = "Analytics Lead"
 pdf = "pershutkina-analytics-lead.pdf"
 cases = ["analytics-foundation", "ride-quality", "repair-early-detection", "offer-experiments", "quarterly-roi", "compactlife"]
 facts = [
-  { value = "0 → 50+", en = "data models: analytics launched from zero", ru = "моделей данных: аналитика запущена с нуля" },
+  { value = "Team of 2", en = "analysts I lead; I own the analytics roadmap and metric standards", ru = "аналитика в моей команде; отвечаю за роадмап аналитики и стандарты метрик" },
   { value = "100+", en = "employees use the reporting", ru = "сотрудников пользуются отчётностью" },
   { value = "4.3 → 4.5", en = "average CSAT in key regions", ru = "средний CSAT в ключевых регионах" },
+]
+recognition = [
+  { en = "Founded and ran GeoStudies, an inter-university research seminar for MSU and HSE students", ru = "Основала и вела GeoStudies, межвузовский исследовательский семинар для студентов МГУ и ВШЭ" },
+  { en = "Finalist of the Russian Geographical Society “Young Leaders” scholarship contest (2022)", ru = "Финалистка конкурса стипендий Русского географического общества «Молодые лидеры» (2022)" },
+  { en = "Presented analysis to managers at Yandex, Whoosh and Urent", ru = "Представляла анализ руководителям Яндекса, Whoosh и Urent" },
 ]
 [roles.en]
 focus = "Analytics ownership · Metric strategy · Data foundations · Executive decision support"
@@ -152,11 +171,15 @@ skills = [
 slug = "data-product-manager"
 title = "Data Product Manager"
 pdf = "pershutkina-data-product-manager.pdf"
-cases = ["event-tracking", "onboarding-funnel", "offer-experiments", "data-requirements", "compactlife", "quarterly-roi"]
+cases = ["event-tracking", "onboarding-funnel", "compactlife", "data-requirements", "offer-experiments", "quarterly-roi"]
 facts = [
   { value = "100+", en = "mobile events defined for 15+ features", ru = "событий описано для 15+ фич" },
   { value = "+5%", en = "onboarding conversion, confirmed by an A/B test", ru = "конверсии онбординга, подтверждено A/B-тестом" },
-  { value = "20+", en = "specifications delivered to engineering", ru = "ТЗ передано в разработку" },
+  { value = "3 teams", en = "work in parallel after I split a rating monolith into 5+ services (T-Bank)", ru = "работают параллельно после того, как я разбила монолит оценки клиентов на 5+ сервисов (Т-Банк)" },
+]
+recognition = [
+  { en = "Open Data Challenge for Public Transportation 2026 (Japan): CompactLife project with Harvard’s Spatial Data Lab; I own the MVP scope and data architecture", ru = "Open Data Challenge for Public Transportation 2026 (Япония): проект CompactLife с гарвардской Spatial Data Lab, на мне границы MVP и архитектура данных" },
+  { en = "Presented analysis to managers at Yandex, Whoosh and Urent", ru = "Представляла анализ руководителям Яндекса, Whoosh и Urent" },
 ]
 [roles.en]
 focus = "Data products · Product measurement · Experimentation · Mobility intelligence"

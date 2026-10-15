@@ -21,6 +21,9 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://pershutkina.com"
 LANGS = ("en", "ru")
 
+# Сколько первых кейсов роли показывать целиком; остальные идут коротким списком.
+FEATURED = 3
+
 UI = {
     "en": {
         "name": "Svetlana Pershutkina",
@@ -38,6 +41,9 @@ UI = {
         "cv": "CV",
         "download_cv": "Download CV (PDF)",
         "selected_cases": "Selected cases",
+        "more_cases": "More cases",
+        "recognition": "Selected recognition",
+        "location": "Moscow, Russia · Open to UK relocation (Skilled Worker sponsorship) · Remote worldwide",
         "skills_h": "Core skills",
         "experience_h": "Experience",
         "education_h": "Education",
@@ -78,6 +84,9 @@ UI = {
         "cv": "CV",
         "download_cv": "Скачать CV (PDF)",
         "selected_cases": "Кейсы",
+        "more_cases": "Ещё кейсы",
+        "recognition": "Признание",
+        "location": "Москва · готова к переезду в Великобританию (нужна виза Skilled Worker) · удалённо из любой страны",
         "skills_h": "Ключевые навыки",
         "experience_h": "Опыт работы",
         "education_h": "Образование",
@@ -255,7 +264,31 @@ def role_page(role, cases, exp, lang):
     r = role[lang]
     pdf = f"/cv/{role['pdf']}"
     contacts = "\n".join(f"          <li>{contact_link(*c)}</li>" for c in CONTACTS)
-    case_blocks = "\n\n".join(case_html(cases[cid], lang) for cid in role["cases"])
+    featured, rest = role["cases"][:FEATURED], role["cases"][FEATURED:]
+    case_blocks = "\n\n".join(case_html(cases[cid], lang) for cid in featured)
+    more = ""
+    if rest:
+        items = []
+        for cid in rest:
+            c = cases[cid]
+            m = c["metrics"][0] if c["metrics"] else None
+            note = f" · {m['value']} {m[lang]}" if m else ""
+            org = c.get("org_ru", c["org"]) if lang == "ru" else c["org"]
+            items.append(f'          <li><a href="{url(lang, "/cases/")}#{cid}">{c[lang]["title"]}</a> '
+                         f'<span>{org}{note}</span></li>')
+        more = (f'\n\n        <h3 class="intro__h">{t["more_cases"]}</h3>\n'
+                f'        <ul class="more-cases">\n' + "\n".join(items) + "\n        </ul>")
+    recognition = ""
+    if role.get("recognition"):
+        items = "\n".join(f"          <li>{x[lang]}</li>" for x in role["recognition"])
+        recognition = f"""
+
+      <section id="recognition" aria-labelledby="recognition-h">
+        <h2 id="recognition-h">{t["recognition"]}</h2>
+        <ul class="plain recognition">
+{items}
+        </ul>
+      </section>"""
     skills = "\n".join(
         f"          <div>\n            <dt>{name}</dt>\n            <dd>{text}</dd>\n          </div>"
         for name, text in r["skills"]
@@ -285,6 +318,7 @@ def role_page(role, cases, exp, lang):
         <p class="role">{role["title"]}</p>
         <p class="focus">{r["focus"]}</p>
         <p class="lede">{r["lede"]}</p>
+        <p class="location">{t["location"]}</p>
         <ul class="contacts">
           <li><a class="button" href="{pdf}" download>{t["download_cv"]}</a></li>
 {contacts}
@@ -296,7 +330,7 @@ def role_page(role, cases, exp, lang):
       <section id="cases" aria-labelledby="cases-h">
         <h2 id="cases-h">{t["selected_cases"]}</h2>
 
-{case_blocks}
+{case_blocks}{more}
       </section>
 
       <section id="skills" aria-labelledby="skills-h">
@@ -309,7 +343,7 @@ def role_page(role, cases, exp, lang):
       <section id="experience" aria-labelledby="experience-h">
         <h2 id="experience-h">{t["experience_h"]}</h2>
 {jobs}
-      </section>
+      </section>{recognition}
 
       <section id="education" aria-labelledby="education-h">
         <h2 id="education-h">{t["education_h"]}</h2>

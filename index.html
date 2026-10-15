@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Svetlana Pershutkina, Data Analyst</title>
-  <meta name="description" content="Data analyst with 3+ years in micromobility, fintech and transport planning. Product Analytics Lead at Whoosh. SQL, Python, dbt, A/B testing, geospatial analysis.">
+  <title>Svetlana Pershutkina, Product Analytics Lead</title>
+  <meta name="description" content="Product Analytics Lead at Whoosh with 3+ years in micromobility, fintech and transport planning. SQL, Python, dbt, A/B testing, geospatial analysis.">
   <link rel="canonical" href="https://pershutkina.com/">
   <link rel="alternate" hreflang="en" href="https://pershutkina.com/">
   <link rel="alternate" hreflang="ru" href="https://pershutkina.com/ru/">
   <link rel="alternate" hreflang="x-default" href="https://pershutkina.com/">
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="Svetlana Pershutkina, Data Analyst">
+  <meta property="og:title" content="Svetlana Pershutkina, Product Analytics Lead">
   <meta property="og:description" content="3+ years in micromobility, fintech and transport planning. SQL, Python, dbt, A/B testing, geospatial analysis.">
   <meta property="og:url" content="https://pershutkina.com/">
   <meta property="og:image" content="https://pershutkina.com/assets/og.png">
@@ -25,6 +25,8 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="stylesheet" href="/assets/style.css">
   <script src="/assets/lang.js" defer></script>
+  <script>document.documentElement.classList.add('js-hero')</script>
+  <script src="/assets/hero.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -47,13 +49,58 @@
     </div>
   </header>
 
+  <div class="hero" id="top">
+    <svg class="hero__map" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id="hex" width="48.5" height="84" patternUnits="userSpaceOnUse">
+          <path d="M24.2 0L48.5 14L48.5 42L24.2 56L0 42L0 14ZM0 42L24.2 56L24.2 84L0 98L-24.2 84L-24.2 56ZM48.5 42L72.7 56L72.7 84L48.5 98L24.2 84L24.2 56Z"/>
+        </pattern>
+        <radialGradient id="hex-fade" cx="62%" cy="45%" r="60%">
+          <stop offset="0" stop-color="#fff"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <mask id="hex-mask"><rect width="1440" height="900" fill="url(#hex-fade)"/></mask>
+        <path id="route-1" d="M-40 700C200 640 320 520 520 540S860 640 1040 480S1300 220 1480 200" pathLength="1"/>
+        <path id="route-2" d="M-40 180C180 220 300 330 520 300S820 160 1000 230S1260 420 1480 380" pathLength="1"/>
+        <path id="route-3" d="M300 940C360 760 520 700 700 720S1000 860 1180 700S1360 560 1480 600" pathLength="1"/>
+        <path id="route-4" d="M860 -40C880 120 980 260 1120 300S1360 300 1480 360" pathLength="1"/>
+      </defs>
+      <rect class="hero__grid" width="1440" height="900" fill="url(#hex)" mask="url(#hex-mask)"/>
+      <use class="hero__route" href="#route-1"/>
+      <use class="hero__route hero__route--b" href="#route-2"/>
+      <use class="hero__route hero__route--c" href="#route-3"/>
+      <use class="hero__route hero__route--d" href="#route-4"/>
+      <g class="hero__stops">
+        <circle cx="520" cy="540" r="7" style="--d:1.3s"/>
+        <circle cx="1040" cy="480" r="7" style="--d:1.7s"/>
+        <circle cx="520" cy="300" r="7" style="--d:1.5s"/>
+        <circle cx="1000" cy="230" r="7" style="--d:1.9s"/>
+        <circle cx="700" cy="720" r="7" style="--d:1.8s"/>
+        <circle cx="1180" cy="700" r="7" style="--d:2.1s"/>
+        <circle cx="1120" cy="300" r="7" style="--d:2s"/>
+      </g>
+      <g class="hero__riders">
+        <circle r="5"><animateMotion dur="14s" begin="2s" repeatCount="indefinite"><mpath href="#route-1"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="17s" begin="2.4s" repeatCount="indefinite"><mpath href="#route-2"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="15s" begin="2.8s" repeatCount="indefinite"><mpath href="#route-3"/></animateMotion></circle>
+        <circle r="5"><animateMotion dur="11s" begin="3.2s" repeatCount="indefinite"><mpath href="#route-4"/></animateMotion></circle>
+      </g>
+    </svg>
+    <div class="hero__inner">
+      <p class="hero__kicker">Product Analytics Lead · Whoosh</p>
+      <h1 class="hero__name"><span class="hero__line">Svetlana</span> <span class="hero__line">Pershutkina</span></h1>
+      <p class="hero__tag">Data, maps and experiments for a mobility service with 30M+ users, 250k+ vehicles and 7 countries.</p>
+    </div>
+    <a class="hero__cue" href="#main"><span>Scroll</span><span class="hero__arrow" aria-hidden="true"></span></a>
+  </div>
+
   <main id="main">
     <div class="wrap">
 
       <div class="intro">
-        <h1>Svetlana Pershutkina</h1>
-        <p class="role">Data Analyst</p>
-        <p class="lede">3+ years of analytics in micromobility, fintech and transport planning. At <a href="https://whoosh.bike/" target="_blank" rel="noopener noreferrer">Whoosh</a> I lead product analytics for ride quality, fleet reliability and geodata across 250k+ connected vehicles. Daily tools: SQL, Python, dbt, Dagster and A/B tests. Based in Moscow.</p>
+        <p class="role">Product Analytics Lead</p>
+        <p class="lede">3+ years of analytics in micromobility, fintech and transport planning. At <a href="https://whoosh.bike/" target="_blank" rel="noopener noreferrer">Whoosh</a> I lead product analytics for ride quality, fleet reliability and geodata across 250k+ connected vehicles. Daily tools: SQL, Python, dbt, Dagster and A/B tests.</p>
+        <p class="location">Moscow, Russia · Open to UK relocation (Skilled Worker sponsorship) · Remote worldwide</p>
         <ul class="contacts">
           <li><a class="button" href="/cv.html">Download CV</a></li>
           <li><a href="mailto:pershutkina2000@gmail.com">pershutkina2000@gmail.com</a></li>
@@ -196,7 +243,7 @@
             <ul>
               <li>Built a GPS spoofing detection model on fleet tracks that filters drift and displaced coordinates: location accuracy +20%, geolocation complaints −80%.</li>
               <li>Built a fleet-health model on 250k+ IoT devices (Python, scikit-learn) that flags degraded scooters and batteries for a weekly operations process: inefficient recharge costs −15%. An early-detection flow for damaged vehicles cut the time to repair from 14 days to 1 and raised the share of justified repair referrals by 30%.</li>
-              <li>Ran 10 A/B tests of personalised offers (8 significant) and turned them into a margin-ranked offer matrix by user cohort. Found onboarding funnel drop-offs; the UX fix lifted onboarding conversion by 5% relative, confirmed by an A/B test.</li>
+              <li>Ran 10 A/B tests of personalised offers: 8 gave significant results and 2 were flagged as underpowered instead of being over-read. Turned the results into a margin-ranked offer matrix by user cohort. Found onboarding funnel drop-offs; the UX fix lifted onboarding conversion by 5% relative, confirmed by an A/B test.</li>
               <li>Built the analytics foundation from scratch: a warehouse and 50+ dbt models in Dagster joining telemetry, behavioural and financial data, plus a metric tree and automated reporting used by 100+ employees.</li>
             </ul>
             <p class="stack"><b>Stack:</b> SQL, Python (pandas, NumPy, scikit-learn), dbt, Dagster, AWS Redshift, Athena, S3, Power BI, QGIS, H3</p>

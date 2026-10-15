@@ -68,7 +68,6 @@ when = { en = "2025 – 2026", ru = "2025 – 2026" }
 stack = "SQL, Python, A/B testing, cohort analysis"
 metrics = [
   { value = "10", en = "A/B tests of personalised offers", ru = "A/B-тестов персональных офферов" },
-  { value = "8 of 10", en = "statistically significant", ru = "статистически значимы" },
 ]
 [cases.en]
 title = "Personalised offer experiments"
@@ -78,7 +77,7 @@ actions = [
   "Designed and analysed 10 A/B tests: sample sizes, significance, effects by cohort.",
   "Flagged the two tests whose samples were too small to draw a conclusion.",
 ]
-result = "8 of 10 tests gave significant results. They became a margin-ranked offer matrix by cohort that guides offer selection."
+result = "Eight tests gave significant results; I reported the two underpowered ones as inconclusive rather than over-reading them. The significant results became a margin-ranked offer matrix by cohort that now guides offer selection."
 [cases.ru]
 title = "Эксперименты с персональными офферами"
 problem = "Нужно было понять, какие персональные офферы и где их показывать выгодны для каких когорт пользователей."
@@ -87,7 +86,7 @@ actions = [
   "Спроектировала и разобрала 10 A/B-тестов: размер выборки, значимость, эффекты по когортам.",
   "Отметила два теста, где выборки не хватило для вывода.",
 ]
-result = "8 из 10 тестов дали значимый результат. По ним собрана матрица самых маржинальных офферов для каждой когорты, по ней выбирают офферы."
+result = "Восемь тестов дали значимый результат, а два с недобором выборки я показала как неокончательные, не делая по ним выводов. По значимым собрана матрица самых маржинальных офферов для каждой когорты, по ней теперь выбирают офферы."
 
 [[cases]]
 id = "onboarding-funnel"
