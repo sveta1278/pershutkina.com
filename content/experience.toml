@@ -21,9 +21,9 @@ en = { when = "Jun 2023 – Aug 2024", title = "Geospatial Analyst", org = "Mosc
 ru = { when = "июнь 2023 – авг. 2024", title = "Геоаналитик", org = "Департамент транспорта Москвы", note = "ЦОДД." }
 
 [[education]]
-en = { when = "2025 – 2027", title = "Master in Management, Operational Efficiency and Production Systems", org = "HSE University, Graduate School of Business · expected 2027. HSE: #6 in Russia (RAEX-100, 2026), #1 for Management (RAEX, 2025)" }
-ru = { when = "2025 – 2027", title = "Магистратура «Операционная эффективность и производственные системы»", org = "НИУ ВШЭ, Высшая школа бизнеса · окончание в 2027. ВШЭ: 6-е место в России (RAEX-100, 2026), 1-е по менеджменту (RAEX, 2025)" }
+en = { when = "2025 – 2027", title = "Master in Management, Operational Efficiency and Production Systems", org = "HSE University, Graduate School of Business · expected 2027. HSE: #423 in the world (QS 2027), #6 in Russia (RAEX-100, 2026), #1 in Russia for Management (RAEX, 2025)" }
+ru = { when = "2025 – 2027", title = "Магистратура «Операционная эффективность и производственные системы»", org = "НИУ ВШЭ, Высшая школа бизнеса · окончание в 2027. ВШЭ: 423-е место в мире (QS 2027), 6-е в России (RAEX-100, 2026), 1-е в России по менеджменту (RAEX, 2025)" }
 
 [[education]]
-en = { when = "2020 – 2024", title = "Bachelor in Economic and Social Geography", org = "Lomonosov Moscow State University, Faculty of Geography. #1 university in Russia (RAEX-100, every year since 2012)" }
-ru = { when = "2020 – 2024", title = "Бакалавриат, экономическая и социальная география", org = "МГУ имени М. В. Ломоносова, географический факультет. Вуз №1 в России (RAEX-100, каждый год с 2012-го)" }
+en = { when = "2020 – 2024", title = "Bachelor in Economic and Social Geography", org = "Lomonosov Moscow State University, Faculty of Geography. #115 in the world (QS 2027), #1 in Russia (RAEX-100, every year since 2012)" }
+ru = { when = "2020 – 2024", title = "Бакалавриат, экономическая и социальная география", org = "МГУ имени М. В. Ломоносова, географический факультет. 115-е место в мире (QS 2027), вуз №1 в России (RAEX-100, каждый год с 2012-го)" }
