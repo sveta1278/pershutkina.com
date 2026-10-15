@@ -36,7 +36,6 @@
     const h = hero.offsetHeight || 1;
     const p = Math.min(Math.max(window.scrollY / h, 0), 1);
     hero.style.setProperty('--p', p.toFixed(3));
-    root.classList.toggle('hero-passed', p > 0.55);
   };
 
   const onScroll = () => {
@@ -48,10 +47,7 @@
 
   const setup = () => {
     hero = document.querySelector('.hero');
-    if (!hero) {
-      root.classList.add('hero-passed');
-      return;
-    }
+    if (!hero) return;
     const name = hero.querySelector('.hero__name');
     if (name) split(name);
     const svg = hero.querySelector('svg');
