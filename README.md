@@ -24,10 +24,12 @@ _config.yml         что GitHub Pages не публикует (content/, scrip
 content/cases.toml      банк кейсов (EN + RU)
 content/roles.toml      роли: тексты, цифры, навыки и список кейсов
 content/experience.toml короткий опыт и образование для страниц ролей
+content/pet-projects.toml  пет-проекты; материалы кладутся в pet-projects/files/
 
 Генерируются build.py (руками не править):
 <роль>/index.html, ru/<роль>/index.html   страницы ролей, например /senior-product-analyst/
 cases/index.html, ru/cases/index.html     все кейсы
+pet-projects/index.html, ru/pet-projects/index.html  пет-проекты
 cv.html, ru/cv.html, sitemap.xml
 ```
 

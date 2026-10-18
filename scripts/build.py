@@ -7,6 +7,7 @@
 Генерирует (руками не править, перезапишутся):
   <slug>/index.html, ru/<slug>/index.html   страницы ролей
   cases/index.html, ru/cases/index.html     все кейсы
+  pet-projects/index.html, ru/pet-projects/index.html  пет-проекты из content/pet-projects.toml
   cv.html, ru/cv.html                       список CV
   sitemap.xml
 Главные страницы index.html и ru/index.html пишутся руками.
@@ -32,7 +33,8 @@ UI = {
         "language": "Language",
         "other_title": "Русская версия",
         "home": "/",
-        "cases": "Cases",
+        "cases": "Work cases",
+        "pet": "Pet projects",
         "skills": "Skills",
         "experience": "Experience",
         "education": "Education",
@@ -53,7 +55,7 @@ UI = {
         "result": "Result",
         "stack": "Stack",
         "for_roles": "Relevant for",
-        "cases_title": "Case studies",
+        "cases_title": "Work cases",
         "cases_lede": "Projects from Whoosh, T-Bank, the Moscow Department of Transport and Harvard’s Spatial Data Lab: the task, what I did and what changed. Each role page below shows the cases that matter most for that role.",
         "by_role": "Cases by role",
         "all_cases": "All cases",
@@ -65,6 +67,10 @@ UI = {
         "footer_main": "Main page",
         "desc_role": "Svetlana Pershutkina, {title}: {focus}. Selected cases with results.",
         "desc_cases": "Case studies by Svetlana Pershutkina: analytics in micromobility, fintech and transport planning, with task, approach and results.",
+        "pet_title": "Pet projects",
+        "pet_lede": "Projects I do outside work: to try new tools, data and ideas.",
+        "pet_empty": "Projects will appear here soon.",
+        "desc_pet": "Pet projects by Svetlana Pershutkina: data and analytics projects outside work.",
         "desc_cv": "Download Svetlana Pershutkina’s CV in PDF, tailored to six roles: data, product and operations analytics.",
         "og_locale": "en_GB",
     },
@@ -75,7 +81,8 @@ UI = {
         "language": "Язык",
         "other_title": "English version",
         "home": "/ru/",
-        "cases": "Кейсы",
+        "cases": "Рабочие кейсы",
+        "pet": "Пет-проекты",
         "skills": "Навыки",
         "experience": "Опыт",
         "education": "Образование",
@@ -96,7 +103,7 @@ UI = {
         "result": "Результат",
         "stack": "Стек",
         "for_roles": "Подходит для ролей",
-        "cases_title": "Кейсы",
+        "cases_title": "Рабочие кейсы",
         "cases_lede": "Проекты в Whoosh, Т-Банке, Департаменте транспорта Москвы и гарвардской Spatial Data Lab: задача, что я сделала и что изменилось. На странице каждой роли собраны самые подходящие для неё кейсы.",
         "by_role": "Кейсы по ролям",
         "all_cases": "Все кейсы",
@@ -108,6 +115,10 @@ UI = {
         "footer_main": "Главная",
         "desc_role": "Светлана Першуткина, {title}: {focus}. Подобранные кейсы с результатами.",
         "desc_cases": "Кейсы Светланы Першуткиной: аналитика в микромобильности, финтехе и транспортном планировании. Задача, подход и результат.",
+        "pet_title": "Пет-проекты",
+        "pet_lede": "Проекты, которые я делаю вне работы: пробую новые инструменты, данные и идеи.",
+        "pet_empty": "Скоро здесь появятся проекты.",
+        "desc_pet": "Пет-проекты Светланы Першуткиной: проекты по данным и аналитике вне работы.",
         "desc_cv": "Резюме Светланы Першуткиной в PDF под шесть ролей: аналитика данных, продукта и операций.",
         "og_locale": "ru_RU",
     },
@@ -178,9 +189,9 @@ def page(lang, path, title, description, nav, body, og_type="website"):
   <meta property="og:locale:alternate" content="{alt_locale}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#1f5135">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" sizes="32x32">
-  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="32x32">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
   <link rel="stylesheet" href="/assets/style.css">
   <script src="/assets/lang.js" defer></script>
 </head>
@@ -241,7 +252,9 @@ def case_html(case, lang, roles_by_case=None):
     roles = ""
     if roles_by_case:
         links = ", ".join(
-            f'<a href="{url(lang, "/" + r["slug"] + "/")}#{case["id"]}">{r["title"]}</a>'
+            # якорь только если кейс показан на странице роли целиком
+            f'<a href="{url(lang, "/" + r["slug"] + "/")}'
+            f'{"#" + case["id"] if case["id"] in r["cases"][:FEATURED] else "#cases"}">{r["title"]}</a>'
             for r in roles_by_case.get(case["id"], [])
         )
         if links:
@@ -369,6 +382,7 @@ def main_nav(lang, current):
         (h + "#education", t["education"], False),
         (h + "#experience", t["experience"], False),
         (url(lang, "/cases/"), t["cases"], current == "cases"),
+        (url(lang, "/pet-projects/"), t["pet"], current == "pet"),
         (h + "#about", t["about"], False),
         (url(lang, "/cv.html"), t["cv"], current == "cv"),
     ]
@@ -400,6 +414,31 @@ def cases_page(roles, cases, lang):
       </section>"""
     title = f"{t['cases_title']}: {t['name']}"
     return page(lang, "/cases/", title, t["desc_cases"], main_nav(lang, "cases"), body)
+
+
+def pet_page(pets, lang):
+    t = UI[lang]
+    items = []
+    for p in pets:
+        d = p[lang]
+        link = f'\n          <p><a href="{p["href"]}">{d.get("link", "")}</a></p>' if p.get("href") else ""
+        stack = f'\n          <p class="stack"><b>{t["stack"]}:</b> {p["stack"]}</p>' if p.get("stack") else ""
+        items.append(f"""        <article class="case" id="{p["id"]}" aria-labelledby="{p["id"]}-h">
+          <p class="case__org">{p.get("year", "")}</p>
+          <h3 id="{p["id"]}-h">{d["title"]}</h3>
+          <p>{d["summary"]}</p>{stack}{link}
+        </article>""")
+    content = "\n\n".join(items) if items else f'        <p class="muted">{t["pet_empty"]}</p>'
+    body = f"""      <div class="intro">
+        <h1>{t["pet_title"]}</h1>
+        <p class="lede">{t["pet_lede"]}</p>
+      </div>
+
+      <section id="projects" aria-label="{t["pet_title"]}">
+{content}
+      </section>"""
+    title = f"{t['pet_title']}: {t['name']}"
+    return page(lang, "/pet-projects/", title, t["desc_pet"], main_nav(lang, "pet"), body)
 
 
 def cv_page(roles, lang):
@@ -474,13 +513,15 @@ def main():
     cases = {c["id"]: c for c in load("cases.toml")["cases"]}
     roles = load("roles.toml")["roles"]
     exp = load("experience.toml")
+    pets = load("pet-projects.toml").get("projects", [])
     check(roles, cases)
     for lang in LANGS:
         for role in roles:
             write(url(lang, f"/{role['slug']}/"), role_page(role, cases, exp, lang))
         write(url(lang, "/cases/"), cases_page(roles, cases, lang))
+        write(url(lang, "/pet-projects/"), pet_page(pets, lang))
         write(url(lang, "/cv.html"), cv_page(roles, lang))
-    paths = ["/", "/cv.html", "/cases/"] + [f"/{r['slug']}/" for r in roles]
+    paths = ["/", "/cv.html", "/cases/", "/pet-projects/"] + [f"/{r['slug']}/" for r in roles]
     write("/sitemap.xml", sitemap(paths))
 
 

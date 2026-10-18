@@ -1,0 +1,15 @@
+# Пет-проекты: страница /pet-projects/ и /ru/pet-projects/.
+# Материалы (ноутбуки, PDF, картинки) кладутся в pet-projects/files/,
+# ссылка на них: href = "/pet-projects/files/имя-файла".
+# Пока список пуст, на странице показывается «Скоро здесь появятся проекты».
+#
+# Пример проекта:
+# [[projects]]
+# id = "bike-routes"
+# year = "2026"
+# stack = "Python, pandas, Kepler.gl"
+# href = "/pet-projects/files/bike-routes.pdf"
+# en = { title = "Bike routes in Moscow", summary = "...", link = "Open the report" }
+# ru = { title = "Велосипедные маршруты в Москве", summary = "...", link = "Открыть отчёт" }
+
+projects = []
